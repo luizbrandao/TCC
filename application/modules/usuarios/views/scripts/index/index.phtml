@@ -1,0 +1,20 @@
+<h2>Usuarios cadastrados</h2>
+<a class="btn btn-success" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/add">Adicionar Usuario</a>
+<table class="table talbe-stripped table-hover">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>Opcoes</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($this->usuarios as $usuario): ?>
+		<tr>
+			<td><a href="<?php echo $this->baseUrl();?>/usuarios/index/view/id/<?php echo $usuario['_id'];?>"><?php echo $usuario['nome'];?></a></td>
+			<td><?php echo $usuario['email'];?></td>
+			<td><a class="btn btn-primary" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/update/id/<?php echo $usuario['_id'];?>">Editar</a><a class="btn btn-danger" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/delete/id/<?php echo $usuario['_id'];?>">Remover</a></td>
+		</tr>
+	<?php endforeach; ?>
+	</tbody>
+</table>

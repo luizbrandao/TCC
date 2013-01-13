@@ -1,0 +1,40 @@
+<form action="<?php echo $this->baseUrl().'/index.php/usuarios/index/update';?>" method="post" class="form-horizontal">
+        <fieldset><legend>Atualizando de Usuario</legend></fieldset>
+        <div class="control-group">
+                <label class="control-label" for="nome">Nome:</label>
+                <div class="controls">
+                        <input type="text" id="nome" name="nome" placeholder="Nome" value="<?php echo $this->usuario['nome'];?>">
+                </div>
+        </div>
+        <div class="control-group">
+                <label class="control-label" for="email">Email</label>
+                <div class="controls">
+                        <input type="email" name="email" id="email" placeholder="Email" value="<?php echo $this->usuario['email']; ?>">
+                </div>
+        </div>
+        <div class="control-group">
+                <label class="control-label" for="username">Username</label>
+                <div class="controls">
+                        <input type="text" name="username" id="username" placeholder="Username" value="<?php echo $this->usuario['username'];?>">
+                </div>
+        </div>
+        <div class="control-group">
+                <label class="control-label" for="password">Password</label>
+                <div class="controls">
+                        <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+        </div>
+        <div class="control-group">
+                <label class="control-label" for="re-password">Repita sua Password</label>
+                <div class="controls">
+                        <input type="password" name="re-password" id="re-password" placeholder="Repita sua Password">
+                </div>
+        </div>
+        <div class="control-group">
+                <div class="controls">
+                        <input type="submit" class="btn btn-success" value="Salvar">
+                        <input type="button" class="btn btn-danger" value="Voltar">
+                </div>
+        </div>
+	<input type="hidden" name="id" id="id" value="<?php echo $this->usuario['_id'];?>">
+</form>

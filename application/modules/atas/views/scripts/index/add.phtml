@@ -1,0 +1,52 @@
+<form class="form-horizontal" action="" method="post" name="adicionar">
+	<fieldset>
+		<legend>Adicionar Reuni&atilde;o para Ata</legend>
+		<div class="control-group">
+			<label class="control-label" for="assunto">Assunto</label>
+			<div class="controls">
+				<input type="text" name="assunto" placeholder="Assunto">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="data">Data</label>
+			<div class="controls">
+				<input type="text" name="data" placeholder="Data">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="presente">Pessoas Presentes</label>
+			<div class="controls">
+				<input type="checkbox">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="pontos">Pontos de Pauta</label>
+			<div id="pontos" class="controls">
+				<input type="text" name="pontos" id="pontos">
+				<i id="adicionar" title="Adicionar Ponto de Pauta" class="icon-plus"></i>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="descricaco">Descri&ccedil;&atilde;o</label>
+			<div class="controls">
+				<textarea name="descricao"></textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<input type="button" class="btn btn-success" value="Proxino">
+				<input type="button" class="btn btn-danger" value="Cancelar">
+			</div>
+		</div>
+	</fieldset>
+</form>
+<script type="text/javascript">
+		var i = 0;
+		$('#adicionar').click(function() {
+			i++;
+			$("#pontos").append('<div id="divCampo'+i+'"> <input type="text" id="campo['+i+']" name="campo['+i+']"> <i class="icon-remove" title="Remover Ponto de Pauta" onClick="deletar('+i+')"></i><br></div> ')
+		});
+		function deletar(id){
+			$("#divCampo"+id).remove();
+		}
+	</script>
