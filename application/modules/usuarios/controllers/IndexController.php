@@ -36,7 +36,7 @@ class Usuarios_IndexController extends Zend_Controller_Action
 		}else{
 			echo "Nao foi possivel inserir usuario";
 		}
-    	
+   	
     	}
     }
 
@@ -72,7 +72,8 @@ class Usuarios_IndexController extends Zend_Controller_Action
                 }else{
                         echo "Nao foi possivel inserir usuario";
                 }
-        }
+        
+    	}
     }
 
     public function deleteAction()
@@ -85,8 +86,22 @@ class Usuarios_IndexController extends Zend_Controller_Action
 	$this->_helper->redirector('index','index','usuarios');
     }
 
+    public function listAjaxAction()
+    {
+        // action body
+	$this->_helper->layout()->disableLayout();
+	$this->_helper->viewRenderer->setNoRender(true);
+	if(isset($_POST)){
+		$usuario = new Usuarios_Model_Usuario();
+        	$usuarios = $usuario->findAll();
+		echo json_encode($usuarios);
+	}
+    }
+
 
 }
+
+
 
 
 

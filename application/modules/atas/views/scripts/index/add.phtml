@@ -15,7 +15,7 @@
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="presente">Pessoas Presentes</label>
-			<div class="controls">
+			<div id="usuarios" class="controls">
 				<input type="checkbox">
 			</div>
 		</div>
@@ -49,4 +49,20 @@
 		function deletar(id){
 			$("#divCampo"+id).remove();
 		}
-	</script>
+</script>
+<div id="container">
+</div>
+<script type="text/javascript">
+	jQuery.ajax({
+		url: "http://localhost:8080/GeraAta/public/index.php/usuarios/index/list-ajax",
+		type: "POST",
+		dataType: 'json',
+		data: {},
+		success: function(data){
+			alert(data);
+		},
+		error: function(){
+			alert("falha");
+		}
+	});
+</script>

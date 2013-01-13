@@ -21,4 +21,13 @@ class Atas_IndexController extends Zend_Controller_Action
 	// Para pegar os parametros submetidos via form
 	//$request->getParam('pautas');
     }
+
+    public function viewAction()
+    {
+        // action body
+    }
+
+
 }
+
+
