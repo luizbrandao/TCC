@@ -89,13 +89,16 @@ class Usuarios_IndexController extends Zend_Controller_Action
     public function listAjaxAction()
     {
         // action body
-	$this->_helper->layout()->disableLayout();
-	$this->_helper->viewRenderer->setNoRender(true);
-	if(isset($_POST)){
-		$usuario = new Usuarios_Model_Usuario();
-        	$usuarios = $usuario->findAll();
-		echo json_encode($usuarios);
+	$app = new Usuarios_Model_Usuario();
+        $usuarios = $app->findAll();
+	$this->view->usuarios = $usuarios;
+	$data = "";
+	foreach($usuarios as $row){
+		$data[] = array('nome'=>$row['nome']);
 	}
+	$this->_helper->json($data);
+	$this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
     }
 
 

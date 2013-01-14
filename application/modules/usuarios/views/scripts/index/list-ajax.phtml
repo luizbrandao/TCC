@@ -1,6 +1,4 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Index</b> and script/action name <b>listAjax</b></p>
-</div>
-<pre>
-<?php print_r($this->usuarios);?>
+<?php foreach($this->usuarios as $row){
+	print_r($row['nome']);
+}
+?>

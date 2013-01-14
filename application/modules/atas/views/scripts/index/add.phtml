@@ -16,7 +16,6 @@
 		<div class="control-group">
 			<label class="control-label" for="presente">Pessoas Presentes</label>
 			<div id="usuarios" class="controls">
-				<input type="checkbox">
 			</div>
 		</div>
 		<div class="control-group">
@@ -57,9 +56,10 @@
 		url: "http://localhost:8080/GeraAta/public/index.php/usuarios/index/list-ajax",
 		type: "POST",
 		dataType: 'json',
-		data: {},
 		success: function(data){
-			alert(data);
+			for($i = 0; $i < data.length; $i++){
+				$('#usuarios').append('<label><input type="checkbox" name="presentes[]"  value="'+data[$i].nome+'">'+data[$i].nome+' </label>');
+			}
 		},
 		error: function(){
 			alert("falha");
