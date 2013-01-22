@@ -35,8 +35,7 @@ class Usuarios_IndexController extends Zend_Controller_Action
 			$this->_helper->redirector('index','index','usuarios');
 		}else{
 			echo "Nao foi possivel inserir usuario";
-		}
-   	
+		}   	
     	}
     }
 
@@ -101,8 +100,15 @@ class Usuarios_IndexController extends Zend_Controller_Action
         $this->_helper->viewRenderer->setNoRender(true);
     }
 
+    public function testeAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 
 
 
