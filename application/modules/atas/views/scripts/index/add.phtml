@@ -23,6 +23,12 @@
 					</div>
 				</div>
 				<div class="control-group">
+					<label class="control-label" for="local">Local</label>
+					<div class="controls">
+						<input type="text" id="local" name="local" placeholder="Local">
+					</div>
+				</div>
+				<div class="control-group">
 					<label class="control-label" for="presente">Pessoas Presentes</label>
 					<div id="usuarios" class="controls">
 					</div>
@@ -64,7 +70,7 @@
 	<div id="botoes" class="controls">
 		<button class="btn" id="prevtab" type="button">Anterior</button>
 		<button class="btn" id="nexttab" type="button">Pr&oacute;ximo</button>
-		<input type="button" class="btn btn-danger" value="Cancelar">
+		<input type="button" id="voltar" name="voltar" class="btn btn-danger" value="Cancelar">
 	</div>
 </div>
 <!-- js para fazer funcionar as perfumarias -->
@@ -75,3 +81,4 @@
 <script src="<?php echo $this->baseUrl(); ?>/public/js/adicionarPontos.js"></script>
 <script src="<?php echo $this->baseUrl(); ?>/public/js/ajaxUsuarios.js"></script>
 <script src="<?php echo $this->baseUrl(); ?>/public/js/datepicker.js"></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/js/botaoVoltar.js"></script>
