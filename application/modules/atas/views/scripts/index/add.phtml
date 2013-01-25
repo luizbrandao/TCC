@@ -1,11 +1,10 @@
-<form class="form-horizontal" action="" method="post" name="adicionar">
+<form class="form-horizontal" action="<?php echo $this->baseUrl(); ?>/atas/index/add" method="post" name="adicionar">
 	<div class="tabbable">
 		<!-- Declaracao das Tabs -->
    		<ul class="nav nav-tabs">
 			<li class="active"><a href="#tab1" data-toggle="tab">Dados Inicias da Ata</a></li>
    			<li><a href="#tab2" data-toggle="tab">Pontos de Pauta</a></li>
    			<li><a href="#tab3" data-toggle="tab">Revis&atilde;o</a></li>
-   			<li><a href="#tab4" data-toggle="tab">Submiss&atilde;o</a></li>
    		</ul>
    		<!-- Area de conteudo das Tabs -->
    		<div class="tab-content">
@@ -20,7 +19,7 @@
 				<div class="control-group">
 					<label class="control-label" for="data">Data</label>
 					<div class="controls">
-						<input type="text" name="data" placeholder="Data">
+						<input type="text" id="data" name="data" placeholder="Data">
 					</div>
 				</div>
 				<div class="control-group">
@@ -31,14 +30,14 @@
 				<div class="control-group">
 					<label class="control-label" for="pontos">Pontos de Pauta</label>
 					<div id="pontos" class="controls">
-						<input type="text" name="pontos" id="pontos" class="campo">
+						<input type="text" name="pontos" id="pontos" class="campo" placeholder="Pontos de Pauta">
 						<i id="adicionar" title="Adicionar Ponto de Pauta" class="icon-plus"></i>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="descricaco">Descri&ccedil;&atilde;o</label>
 					<div class="controls">
-						<textarea name="descricao"></textarea>
+						<textarea name="descricao" placeholder="Descri&ccedil;&atilde;o da Ata"></textarea>
 					</div>
 				</div>
 		    </div>
@@ -50,10 +49,13 @@
 		    </div>
 		    <!-- Conteudo tab3 -->
 		    <div class="tab-pane" id="tab3" name="tab3">
-		    </div>
-		    <!-- Conteudo tab4 -->
-		    <div class="tab-pane" id="tab4" name="tab4">
-			</div>
+		    	<div class="control-group">
+					<div class="controls">
+						<input type="submit" id="salvar" name="salvar" value="Salvar" class="btn btn-primary">
+						<input type="submit" id="homologar" name="homologar" value="Homologar" class="btn btn-success">
+					</div>
+				</div>
+		    </div>		    
 		</div>
 	</div>
 </form>
@@ -66,7 +68,10 @@
 	</div>
 </div>
 <!-- js para fazer funcionar as perfumarias -->
-<script src="<?php echo $this->baseUrl()?>/public/js/bootstrap-tab.js"></script>
-<script src="<?php echo $this->baseUrl()?>/public/js/abas.js"></script>
-<script src="<?php echo $this->baseUrl()?>/public/js/adicionarPontos.js"></script>
-<script src="<?php echo $this->baseUrl()?>/public/js/ajaxUsuarios.js"></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/js/ui/jquery-ui.custom.js"></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/js/ui/jquery.ui.datepicker.js"></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/js/bootstrap-tab.js"></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/js/abas.js"></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/js/adicionarPontos.js"></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/js/ajaxUsuarios.js"></script>
+<script src="<?php echo $this->baseUrl(); ?>/public/js/datepicker.js"></script>
