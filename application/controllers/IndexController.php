@@ -18,6 +18,7 @@ class IndexController extends Zend_Controller_Action
 		} else {
 			$this->_helper->redirector('login', 'index');
 		}
+		
     }
 
     public function loginAction()
@@ -42,16 +43,23 @@ class IndexController extends Zend_Controller_Action
 			} else {
 				echo "Login Incorreto";
 			}
+    	
     	}
     }
 
-    public function logarAction()
+    public function logoutAction()
     {
         // action body
+    	$SessionNamespace = new Zend_Session_Namespace();
+    	
+    	if (Zend_Session::namespaceIsset('usuario')) {
+    		$SessaoUsuario = new Zend_Session_Namespace('usuario');
+    		$SessionUsuario->unsetAll('');
+    		$this->_helper->redirector('login','index');
+    	}
     }
+
 }
-
-
 
 
 

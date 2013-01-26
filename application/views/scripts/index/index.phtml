@@ -1,4 +1,4 @@
 <h3>Sistema de Gerenciamento de Documentos</h3>
-<div>Bem Vindo <?php echo $this->usuario->nome; ?> </div>
+<div>Bem Vindo <?php echo $this->usuario->nome; ?> <a href="<?php echo $this->baseUrl(); ?>/index/logout" class="btn btn-danger"><i class="icon-remove-sign"></i> Sair</a></div>
 <p>O que Deseja fazer?</p>
 <a class="btn btn-info" href="<?php echo $this->baseUrl(); ?>/atas/index"><i class="icon-user"></i> Gerenciar Usuarios</a> <a class="btn btn-info" href="<?php echo $this->baseUrl(); ?>/usuarios/index/"><i class="icon-file"></i> Gerenciar Atas</a>
