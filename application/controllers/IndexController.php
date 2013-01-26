@@ -23,9 +23,14 @@ class IndexController extends Zend_Controller_Action
     		$formData = $this->getRequest()->getPost();
     		
     		$login = $usuario->login($formData);
-    		
+    		$usuarioEncontrado = '';
+    		foreach ($login as $row){
+    			$usuarioEncontrado->nome = $row['nome'];
+    			$usuarioEncontrado->email = $row['email'];
+    		}
     		echo "<pre>";
-    		print_r($login);
+    		print_r($usuarioEncontrado);
+    		
     	}
     }
 
