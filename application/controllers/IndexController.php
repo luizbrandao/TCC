@@ -17,20 +17,21 @@ class IndexController extends Zend_Controller_Action
     public function loginAction()
     {
         // action body
+    	$request = $this->getRequest();
+    	$usuario = new Usuarios_Model_Usuario();
+    	if ($this->getRequest()->isPost()) {
+    		$formData = $this->getRequest()->getPost();
+    		
+    		$login = $usuario->login($formData);
+    		
+    		echo "<pre>";
+    		print_r($login);
+    	}
     }
 
     public function logarAction()
     {
         // action body
-        $request = $this->getRequest();
-
-        if ($this->getRequest()->isPost()) {
-        	$formData = $this->getRequest()->getPost();
-        
-	        echo '<pre>';
-	        print_r($formData);
-	        die;
-        }
     }
 }
 
