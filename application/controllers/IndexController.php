@@ -12,6 +12,8 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+	$SessaoUsuario = new Zend_Session_Namespace('usuario');
+	$this->view->usuario = $SessaoUsuario;
     }
 
     public function loginAction()
@@ -23,14 +25,19 @@ class IndexController extends Zend_Controller_Action
     		$formData = $this->getRequest()->getPost();
     		
     		$login = $usuario->login($formData);
-    		$usuarioEncontrado = '';
-    		foreach ($login as $row){
-    			$usuarioEncontrado->nome = $row['nome'];
-    			$usuarioEncontrado->email = $row['email'];
-    		}
-    		echo "<pre>";
-    		print_r($usuarioEncontrado);
-    		
+
+    		$SessaoUsuario = new Zend_Session_Namespace('usuario');
+
+			foreach($login as $row){
+				$SessaoUsuario->nome = $row['nome'];
+                $SessaoUsuario->email= $row['email'];
+            }
+
+			if(!empty($SessaoUsuario->nome)){
+    			$this->_helper->redirector('index','index');
+			} else {
+				echo "Login Incorreto";
+			}
     	}
     }
 
