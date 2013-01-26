@@ -54,7 +54,7 @@ class IndexController extends Zend_Controller_Action
     	
     	if (Zend_Session::namespaceIsset('usuario')) {
     		$SessaoUsuario = new Zend_Session_Namespace('usuario');
-    		$SessionUsuario->unsetAll('');
+    		$SessaoUsuario->unsetAll('');
     		$this->_helper->redirector('login','index');
     	}
     }
