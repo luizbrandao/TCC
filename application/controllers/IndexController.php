@@ -5,15 +5,19 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
-		$this->request = $this->getRequest();
-        /* Initialize action controller here */
+    	/* Initialize action controller here */
+    	$this->request = $this->getRequest();
     }
 
     public function indexAction()
     {
         // action body
-	$SessaoUsuario = new Zend_Session_Namespace('usuario');
-	$this->view->usuario = $SessaoUsuario;
+		$SessaoUsuario = new Zend_Session_Namespace();
+		if(Zend_Session::namespaceIsset('usuario')){
+			$this->view->usuario = $SessaoUsuario;
+		} else {
+			$this->_helper->redirector('login', 'index');
+		}
     }
 
     public function loginAction()

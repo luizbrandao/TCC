@@ -64,10 +64,13 @@ class Usuarios_Model_Usuario
 			throw new Exception($e->getMessage());
 		}
 	}
+	
 	public function login($usuario){
 		$conexao = new Atas_Model_Banco();
 		$db = $conexao->getConnection();
-		$usuario = $db->usuarios->find(array('username'=>$usuario['username'], 'password'=>$usuario['password']));
+		$usuario = $db->usuarios->find(array(
+							'username'=>$usuario['username'],
+							'password'=>$usuario['password']));
 		return $usuario;
 	}
 }
