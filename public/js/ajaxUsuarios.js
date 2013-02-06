@@ -1,5 +1,5 @@
 jQuery.ajax({
-	url: "http://localhost:8080/GeraAta/public/index.php/usuarios/index/list-ajax",
+	url: "http://localhost:8080/GeraAta/public/index.php/usuarios/index/list-ajax&callback=?",
 	type: "POST",
 	dataType: 'json',
 	success: function(data){
