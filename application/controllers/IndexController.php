@@ -13,11 +13,13 @@ class IndexController extends Zend_Controller_Action
     {
         // action body
 		$SessaoUsuario = new Zend_Session_Namespace('usuario');
-		if(Zend_Session::namespaceIsset('usuario')){
+		$SessaoUsuario->nome = 'Luiz';
+		$this->view->usuario = $SessaoUsuario;
+		/*if(Zend_Session::namespaceIsset('usuario')){
 			$this->view->usuario = $SessaoUsuario;
 		} else {
 			$this->_helper->redirector('login', 'index');
-		}
+		}*/
 		
     }
 

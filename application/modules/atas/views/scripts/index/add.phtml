@@ -1,77 +1,83 @@
-<form class="form-horizontal" action="<?php echo $this->baseUrl(); ?>/atas/index/add" method="post" name="adicionar">
-	<div class="tabbable">
-		<!-- Declaracao das Tabs -->
-   		<ul class="nav nav-tabs">
-			<li class="active"><a href="#tab1" data-toggle="tab">Dados Inicias da Ata</a></li>
-   			<li><a href="#tab2" data-toggle="tab">Pontos de Pauta</a></li>
-   			<li><a href="#tab3" data-toggle="tab">Revis&atilde;o</a></li>
-   		</ul>
-   		<!-- Area de conteudo das Tabs -->
-   		<div class="tab-content">
-		    <!-- Conteudo tab1 -->
-		    <div class="tab-pane active" id="tab1">
-		    	<div class="control-group">
-					<label class="control-label" for="assunto">Assunto</label>
-					<div class="controls">
-						<input type="text" name="assunto" placeholder="Assunto">
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="data">Data</label>
-					<div class="controls">
-						<input type="text" id="data" name="data" placeholder="Data">
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="local">Local</label>
-					<div class="controls">
-						<input type="text" id="local" name="local" placeholder="Local">
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="presente">Pessoas Presentes</label>
-					<div id="usuarios" class="controls">
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="pontos">Pontos de Pauta</label>
-					<div id="pontos" class="controls">
-						<input type="text" name="pontos" id="pontos" class="campo" placeholder="Pontos de Pauta">
-						<i id="adicionar" title="Adicionar Ponto de Pauta" class="icon-plus"></i>
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="descricaco">Descri&ccedil;&atilde;o</label>
-					<div class="controls">
-						<textarea name="descricao" placeholder="Descri&ccedil;&atilde;o da Ata"></textarea>
-					</div>
-				</div>
-		    </div>
-		    <!-- Conteudo tab2 -->
-		    <div class="tab-pane" id="tab2" name="tab2">
-		    	<div id="ajax-pontos" class="control-group">
+<form class="form-horizontal" action="" method="post" name="adicionar">
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">Dados Inicias da Ata</a></li>
+            <li><a href="#tab2" data-toggle="tab">Pontos de Pauta</a></li>
+            <li><a href="#tab3" data-toggle="tab">Revis&atilde;o</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+                <div class="control-group">
+                    <label class="control-label" for="assunto">Assunto</label>
+                    <div class="controls">
+                        <input type="text" name="assunto" id="assunto-form" placeholder="Assunto">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="data">Data</label>
+                    <div class="controls">
+                        <input type="text" name="data" id="data-form" placeholder="Data">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="presente">Pessoas Presentes</label>
+                    <div id="usuarios" class="controls">
 
-				</div>
-		    </div>
-		    <!-- Conteudo tab3 -->
-		    <div class="tab-pane" id="tab3" name="tab3">
-		    	<div class="control-group">
-					<div class="controls">
-						<input type="submit" id="salvar" name="salvar" value="Salvar" class="btn btn-primary">
-						<input type="submit" id="homologar" name="homologar" value="Homologar" class="btn btn-success">
-					</div>
-				</div>
-		    </div>		    
-		</div>
-	</div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="pontos">Pontos de Pauta</label>
+                    <div id="pontos" class="controls">
+                        <input type="text" class="campo" name="pontos0" data-ref="0">
+                        <i id="adicionar" title="Adicionar Ponto de Pauta" class="icon-plus"></i>
+                        <div id="pontos"></div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="descricaco">Descri&ccedil;&atilde;o</label>
+                    <div class="controls">
+                        <textarea name="descricao" id="descricao-form"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab2" name="tab2">
+                <div id="ajax-pontos" class="control-group">
+                </div>
+            </div>
+            <div class="tab-pane" id="tab3" name="tab3">
+                <div id="data" class="data">
+                    <p>Cuiab&aacute; <span id="data-ajax"></span></p>
+                </div>
+                <div id="assunto" class="assunto">
+                    <p><h3><span id="assunto-ajax"></span></h3></p>
+                </div>
+                <div id="descricao" class="descricao">
+                    <p><span id="descricao-ajax"></span></p>
+                </div>
+                <div id="pontos" class="pontos">
+                    <p><b>Ponto de Pauta</b> </p>
+                    <p>
+                    <div id="Lista-pontos-ajax"></div>
+                    </p>
+                </div>
+                <div id="pessoas" class="pessoas">
+                    <p><strong>Pessoas presentes</strong></p>
+                    <ul id="presentes-ajax"></ul>
+                    <div class="controls">
+                        <input type="submit" id="salvar" name="salvar" value="Salvar" class="btn btn-primary">
+                        <input type="submit" id="homologar" name="homologar" value="Homologar" class="btn btn-success">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
-<!-- Botoes Proximo e voltar -->
 <div class="control-group">
-	<div id="botoes" class="controls">
-		<button class="btn" id="prevtab" type="button">Anterior</button>
-		<button class="btn" id="nexttab" type="button">Pr&oacute;ximo</button>
-		<input type="button" id="voltar" name="voltar" class="btn btn-danger" value="Cancelar">
-	</div>
+    <div id="botoes" class="controls">
+        <button class="btn" id="prevtab" type="button">Anterior</button>
+        <button class="btn" id="nexttab" type="button">Pr&oacute;ximo</button>
+        <input id="voltar" type="button" class="btn btn-danger" value="Cancelar">
+    </div>
 </div>
 <!-- js para fazer funcionar as perfumarias -->
 <script src="<?php echo $this->baseUrl(); ?>/public/js/ui/jquery-ui.custom.js"></script>
