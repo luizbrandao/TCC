@@ -1,5 +1,21 @@
-<h3>Sistema de Gerenciamento de Documentos</h3>
-<div>Bem Vindo <?php echo $this->usuario->nome; ?> <a href="<?php echo $this->baseUrl(); ?>/index/logout" class="btn btn-danger"><i class="icon-remove-sign"></i> Sair</a></div>
-<p>O que Deseja fazer?</p>
+<div class="row">
+    <div class="span12">
+        <div class="usuario">
+            <h2 class="cabecalho">Sistema de Gerenciamento de Documentos</h2>
+            <div class="btn-group">
+                <button class="btn"><i class="icon-user"></i> <?php echo $this->usuario->nome; ?></button>
+                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="<?php echo $this->baseUrl(); ?>/usuario/index/view/<?php echo $this->usuario->nome; ?>">Perfil</a></li>
+                    <li><a href="<?php echo $this->baseUrl(); ?>/index/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<p><h3>O que Deseja fazer?</h3></p>
 <a class="btn btn-info" href="<?php echo $this->baseUrl(); ?>/usuarios/index"><i class="icon-user"></i> Gerenciar Usuarios</a>
 <a class="btn btn-info" href="<?php echo $this->baseUrl(); ?>/atas/index/"><i class="icon-file"></i> Gerenciar Atas</a>
+<script src="<?php echo $this->baseUrl(); ?>/public/js/bootstrap-dropdown.js"></script>

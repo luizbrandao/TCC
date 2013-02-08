@@ -60,7 +60,7 @@ function revisao () {
         }
     });
 	
-    // LIsta Pontos Ajax
+    // Lista Pontos Ajax
     $(".campo").each(function(index) {
         ref = $(this).attr("data-ref");
         idtextarea = "#pontos"+ref;
