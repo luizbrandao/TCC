@@ -15,8 +15,7 @@
 			<td><?php echo $usuario['email'];?></td>
 			<td>
 				<a class="btn btn-primary" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/update/id/<?php echo $usuario['_id'];?>">Editar</a>
-				<a class="btn btn-danger" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/delete/id/<?php echo $usuario['_id'];?>">Remover</a>
-				<a href="#myModal" id="modal" role="button" class="btn btn-danger" data-toggle="modal">Remover</a>
+				<button target="#myModal" id="excluir" value="<?php echo $usuario['_id'];?>" role="button" class="btn btn-danger" data-toggle="modal">Remover</button>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -36,3 +35,24 @@
 	</div>
 </div>
 <script type="text/javascript" src="<?php echo $this->baseUrl();?>/public/js/bootstrap-modal.js"></script>
+<script type="text/javascript">
+			var id = 0;
+			$("#excluir").click(function(){
+				$('#myModal').modal();
+				id = $("#excluir").attr("value");
+			});
+			
+			$("#confirma").click(function(){
+				jQuery.ajax({
+					url: "/GeraAta/public/index.php/usuarios/index/delete/id/"+id,
+					type: "POST",
+					dataType: 'json',
+					success: function(data){
+						alert("Usuario removido com sucesso "+id);
+					},
+					error: function(){
+						alert(id);
+					}
+				});
+			});
+		</script>
