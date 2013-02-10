@@ -1,4 +1,4 @@
-<h2>Usuarios cadastrados</h2>
+<h2>Usu&aacute;rios cadastrados</h2>
 <a class="btn btn-success" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/add"><i class="icon-user"></i> Adicionar Usuario</a>
 <table class="table talbe-stripped table-hover">
 	<thead>
@@ -13,8 +13,25 @@
 		<tr>
 			<td><a href="<?php echo $this->baseUrl();?>/usuarios/index/view/id/<?php echo $usuario['_id'];?>"><?php echo $usuario['nome'];?></a></td>
 			<td><?php echo $usuario['email'];?></td>
-			<td><a class="btn btn-primary" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/update/id/<?php echo $usuario['_id'];?>">Editar</a><a class="btn btn-danger" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/delete/id/<?php echo $usuario['_id'];?>">Remover</a></td>
+			<td>
+				<a class="btn btn-primary" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/update/id/<?php echo $usuario['_id'];?>">Editar</a>
+				<a class="btn btn-danger" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/delete/id/<?php echo $usuario['_id'];?>">Remover</a>
+				<a href="#myModal" id="modal" role="button" class="btn btn-danger" data-toggle="modal">Remover</a>
+			</td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>
 </table>
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+		<h3 id="myModalLabel">Excluir Cadastro</h3>
+	</div>
+	<div class="modal-body">
+		<p>Tem certeza que desejar excluir esse usuario?</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+		<button id="confirma" class="btn btn-danger">OK</button>
+	</div>
+</div>

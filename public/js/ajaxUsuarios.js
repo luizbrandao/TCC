@@ -8,6 +8,6 @@ jQuery.ajax({
 		}
 	},
 	error: function(){
-		alert("falha");
+		alert("Não foi possivel recuperar usuarios");
 	}
 });
