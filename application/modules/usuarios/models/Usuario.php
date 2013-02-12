@@ -13,7 +13,7 @@ class Usuarios_Model_Usuario
 		try{
 			$conexao = new Atas_Model_Banco();
 			$db = $conexao->getConnection();
-			$usuario = $db->usuarios->save($usuario);
+			$usuario = $db->usuarios->insert($usuario,array("safe"=>false));
 			return true;
 		}catch(Exception $e){
 			return false;

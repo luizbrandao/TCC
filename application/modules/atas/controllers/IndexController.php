@@ -16,7 +16,7 @@ class Atas_IndexController extends Zend_Controller_Action
     	if(Zend_Session::namespaceIsset('usuario')){
     		$this->view->usuario = $SessaoUsuario;
     	} else {
-    		$this->_helper->redirector('login', 'index');
+    		$this->_helper->redirector('login', 'index', 'index');
     	}
 	
     }
