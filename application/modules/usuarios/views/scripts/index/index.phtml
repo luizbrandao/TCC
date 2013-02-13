@@ -11,7 +11,7 @@
 	<tbody>
 	<?php foreach($this->usuarios as $usuario): ?>
 		<tr>
-			<td><a href="<?php echo $this->baseUrl();?>/usuarios/index/view/id/<?php echo $usuario['_id'];?>"><?php echo $usuario['nome'];?></a></td>
+			<td><a href="<?php echo $this->baseUrl();?>/usuarios/index/view/id/<?php echo $usuario['_id'];?>"><?php echo utf8_decode($usuario['nome']);?></a></td>
 			<td><?php echo $usuario['email'];?></td>
 			<td>
 				<a class="btn btn-primary" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/update/id/<?php echo $usuario['_id'];?>">Editar</a>
