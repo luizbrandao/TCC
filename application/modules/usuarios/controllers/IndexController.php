@@ -24,11 +24,14 @@ class Usuarios_IndexController extends Zend_Controller_Action {
         $this->request = $this->getRequest();
         
         $usuario = array(
-            'nome' => $this->request->getParam('nome'),
+            'nome' => utf8_decode($this->request->getParam('nome')),
             'email' => $this->request->getParam('email'),
             'username' => $this->request->getParam('username'),
             'password' => $this->request->getParam('password'),
         );
+        
+        echo "<pre>";
+        print_r($usuario);
         
         $usuarios = new Usuarios_Model_Usuario();
         if ($this->request->getParam('password') != "" && $this->request->getParam('password') == $this->request->getParam('re-password')) {
