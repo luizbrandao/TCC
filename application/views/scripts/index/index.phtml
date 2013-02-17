@@ -3,7 +3,7 @@
         <div class="usuario">
             <h2 class="cabecalho">Sistema de Gerenciamento de Documentos</h2>
             <div class="btn-group">
-                <button class="btn"><i class="icon-user"></i> <?php echo $this->usuario->nome; ?></button>
+                <button class="btn"><i class="icon-user"></i> <?php echo utf8_decode($this->usuario->nome); ?></button>
                 <button class="btn dropdown-toggle" data-toggle="dropdown">
                     <span class="caret"></span>
                 </button>
