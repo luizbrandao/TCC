@@ -1,5 +1,7 @@
 <?php
 
+require_once '/var/www/GeraAta/tests/bootstrap.php';
+
 class IndexControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
 {
 
@@ -20,7 +22,6 @@ class IndexControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         $this->assertModule($urlParams['module']);
         $this->assertController($urlParams['controller']);
         $this->assertAction($urlParams['action']);
-        $this->assertQueryContentContains("div#welcome h3", "This is your project's main page");
     }
 
 
