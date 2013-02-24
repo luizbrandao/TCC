@@ -25,7 +25,7 @@ $('#adicionar')
 												+ i
 												+ '"><label class="control-label" for="descricaco" id="desc'
 												+ i
-												+ '"></label><div class="controls"><textarea name="pontos'
+												+ '"></label><div class="controls"><textarea name="descPontos'
 												+ i + '" id="pontos' + i
 												+ '"></textarea></div></div>');
 					}
