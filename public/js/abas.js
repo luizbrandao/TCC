@@ -63,7 +63,7 @@ function revisao() {
 				if ($(this).is(':checked')) {
 					// $("#presentes-ajax").append('<li>'+$(this).val()+'</li>');
 					$("#presentes-ajax").append(
-							'<div>_______________________________ <br>'
+							'<div class="assinaturas">_______________________________ <br>'
 									+ $(this).val() + '<br><div>');
 				}
 			});

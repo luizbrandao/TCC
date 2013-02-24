@@ -42,7 +42,7 @@ class IndexController extends Zend_Controller_Action
 			if(!empty($SessaoUsuario->nome)){
     			$this->_helper->redirector('index','index');
 			} else {
-				echo "Login Incorreto";
+				$this->view->erro = "<div class='alert alert-error'>Login incorreto</div>";
 			}
     	
     	}
