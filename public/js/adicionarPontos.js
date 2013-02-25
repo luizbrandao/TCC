@@ -30,6 +30,8 @@ $('#adicionar')
 					}
 				});
 function deletar(id) {
+	i--;
+	$("#qtdPautas").val(i);
 	$("#divCampo" + id).remove();
 	$("#pontos-div" + id).remove();
 }
