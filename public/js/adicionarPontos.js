@@ -8,6 +8,7 @@ $('#adicionar')
 				function() {
 					i++;
 					$("#pontos")
+					
 							.append(
 									'<div id="divCampo'
 											+ i
@@ -19,6 +20,7 @@ $('#adicionar')
 											+ i + ')"></i><br></div> ')
 					if ($($('#pontos' + i)).length) {
 					} else {
+						$("#qtdPautas").val(i);
 						$("#ajax-pontos")
 								.append(
 										'<div id="pontos-div'
