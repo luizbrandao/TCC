@@ -72,7 +72,7 @@ function revisao() {
 	$(".campo").each(
 			function(index) {
 				ref = $(this).attr("data-ref");
-				idtextarea = "#pontos" + ref;
+				idtextarea = "#descPontos" + ref;
 
 				var data = $(idtextarea).val();
 				var valorTextArea = data.replace(/\n/g, "<br>");
