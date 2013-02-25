@@ -24,7 +24,7 @@ class Atas_IndexController extends Zend_Controller_Action {
 		$ata = new Application_Model_Ata();
 		$ata->assunto = $this->request->getParam('assunto');
 		$ata->data = $this->request->getParam('data');
-		$ata->presentes[] = $this->request->getParam('presentes');
+		$ata->presentes[] = $this->request->getParam('presentes[]');
 
 		$qtdePautas = $this->request->getParam('qtdPautas');
 		for($i = 0; $i <= $qtdePautas; $i++) {
