@@ -11,7 +11,7 @@ $('#adicionar')
 							.append(
 									'<div id="divCampo'
 											+ i
-											+ '"> <input type="text" name="pontos'
+											+ '"> <input type="text" id="pontos'+i+'" name="pontos'
 											+ i
 											+ '" class="campo" data-ref="'
 											+ i
@@ -23,10 +23,10 @@ $('#adicionar')
 								.append(
 										'<div id="pontos-div'
 												+ i
-												+ '"><label class="control-label" for="descricaco" id="desc'
+												+ '"><label class="control-label" for="descricao" id="desc'
 												+ i
 												+ '"></label><div class="controls"><textarea name="descPontos'
-												+ i + '" id="pontos' + i
+												+ i + '" id="descPontos' + i
 												+ '"></textarea></div></div>');
 					}
 				});

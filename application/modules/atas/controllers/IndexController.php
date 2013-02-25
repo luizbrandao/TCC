@@ -24,10 +24,10 @@ class Atas_IndexController extends Zend_Controller_Action {
 		$ata = new Application_Model_Ata();
 		$ata->assunto = $this->request->getParam('assunto');
 		$ata->data = $this->request->getParam('data');
-		$ata->presentes[] = $this->request->getParam('presentes[]');
-		$ata->pautas[] = $this->request->getParam('pontos');
+		$ata->presentes[] = $this->request->getParam('presentes');
+		$ata->pautas = $this->request->getParam('pontos1');
 		$ata->descricao = $this->request->getParam('descricao');
-		$ata->descricaoPontos[] = $this->request->getParam('descPontos');
+		$ata->descricaoPontos = $this->request->getParam('descPontos1');
 		
 		if($this->request->getParam('salvar')){
 			$ata->status = 0;
