@@ -28,8 +28,10 @@ class IndexController extends Zend_Controller_Action
     	$usuario = new Usuarios_Model_Usuario();
     	if ($this->getRequest()->isPost()) {
     		$formData = $this->getRequest()->getPost();
-    		
-    		$login = $usuario->login($formData);
+    		$usuarioModel = new Application_Model_Usuario();
+    		$usuarioModel->username = $formData['username'];
+    		$usuarioModel->password = $formData['password'];
+    		$login = $usuario->login($usuarioModel);
 
     		$SessaoUsuario = new Zend_Session_Namespace('usuario');
 
