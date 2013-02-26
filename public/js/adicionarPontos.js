@@ -22,7 +22,7 @@ $('#adicionar')
 						$("#qtdPautas").val(i);
 						$("#ajax-pontos").append(
 										'<div id="pontos-div'+ i
-												+ '"><label class="control-label" for="descricao" id="desc'
+												+ '"><label class="control-label" for="descPontos'+i+'" id="desc'
 												+ i
 												+ '"></label><div class="controls"><textarea name="descPontos'
 												+ i + '" id="descPontos'
@@ -30,8 +30,6 @@ $('#adicionar')
 					}
 				});
 function deletar(id) {
-	i--;
-	$("#qtdPautas").val(i);
 	$("#divCampo" + id).remove();
 	$("#pontos-div" + id).remove();
 }

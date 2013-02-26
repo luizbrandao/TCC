@@ -28,8 +28,10 @@ class Atas_IndexController extends Zend_Controller_Action {
 
 		$qtdePautas = $this->request->getParam('qtdPautas');
 		for($i = 0; $i <= $qtdePautas; $i++) {
-			$ata->pautas[] = $this->request->getParam('pontos'.$i);
-			$ata->descricaoPontos[] = $this->request->getParam('descPontos'.$i);
+			if($this->request->getParam('pontos'.$i)){
+				$ata->pautas[] = $this->request->getParam('pontos'.$i);
+				$ata->descricaoPontos[] = $this->request->getParam('descPontos'.$i);
+			}
 		}
 		$ata->descricao = $this->request->getParam('descricao');		
 		
