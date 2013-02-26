@@ -65,8 +65,8 @@ class Usuarios_Model_Usuario {
 		$db = $conexao->getConnection();
 		$usuario = $db->usuarios
 				->find(
-						array('username' => $usuario['username'],
-								'password' => $usuario['password']));
+						array('username' => $usuario->username,
+								'password' => $usuario->password));
 		return $usuario;
 	}
 }
