@@ -1,6 +1,7 @@
 <?php
 
-require_once('/var/www/GeraAta/application/modules/usuarios/models/Usuario.php');
+require_once '/var/www/GeraAta/application/models/Usuario.php';
+require_once '/var/www/GeraAta/application/modules/usuarios/models/Usuario.php';
 
 class UsuarioTest extends PHPUnit_Framework_TestCase {
 	

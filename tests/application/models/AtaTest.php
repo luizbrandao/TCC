@@ -1,7 +1,7 @@
 <?php
 
-require_once('/var/www/GeraAta/application/model/Ata.php');
-require_once('/var/www/GeraAta/application/modules/atas/models/Ata.php');
+require_once '/var/www/GeraAta/application/model/Ata.php';
+require_once '/var/www/GeraAta/application/modules/atas/models/Ata.php';
 
 class AtaTest extends PHPUnit_Framework_TestCase {
 	public function testAtaAppModel() {

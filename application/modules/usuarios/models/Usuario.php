@@ -66,7 +66,7 @@ class Usuarios_Model_Usuario {
 		$usuario = $db->usuarios
 				->find(
 						array('username' => $usuario->username,
-								'password' => $usuario->password));
+							  'password' => $usuario->password));
 		return $usuario;
 	}
 }
