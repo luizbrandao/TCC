@@ -18,7 +18,7 @@ class UsuarioTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue(!empty($u));
 	}
 	
-	//Teste para logind de usuario
+	//Teste para login de usuario
 	public function testLoginUsuario(){
 		$usuario = new Application_Model_Usuario();
 		$usuario->username = 'luizbrandaoj';
