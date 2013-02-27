@@ -19,14 +19,20 @@ class UsuarioTest extends PHPUnit_Framework_TestCase {
 	}
 	
 
-	//Teste para logind de usuario
-	/*public function testLoginUsuario(){
+	//Teste para login de usuario
+	public function testLoginUsuario(){
 		$usuario = new Application_Model_Usuario();
 		$usuario->username = 'luizbrandaoj';
 		$usuario->password = '123456';
 		
 		$u = new Usuarios_Model_Usuario();
 		$usuarioModelo = $u->login($usuario);
-		$this->assertEquals($usuarioModelo,$usuario);
-	}*/
+		foreach($usuarioModelo as $row){
+			$ut = new Application_Model_Usuario();
+			$ut->username = $row['username'];
+			$ut->password = $row['password'];
+			$this->assertEquals($ut, $usuario);
+		}
+		
+	}
 }
