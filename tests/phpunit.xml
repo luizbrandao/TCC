@@ -5,20 +5,13 @@
     <testsuite name="Library Test Suite">
         <directory>/var/www/GeraAta/library/</directory>
     </testsuite>
-    
     <filter>
-        <!-- If Zend Framework is inside your project's library, uncomment this filter -->
-        <!-- 
-        <whitelist>
-            <directory suffix=".php">../../library/Zend</directory>
-        </whitelist>
-        -->
 	<whitelist>
 	    <directory suffix=".php">/var/www/GeraAta/application/</directory>
-	    <directory suffix=".php">/var/www/GeraAta/library/</directory>
-	    <directory suffix=".php">/var/www/GeraAta/library/Zend/</directory>
 	    <exclude>
 		<directory suffix=".phtml">/var/www/GeraAta/application/</directory>
+		<directory suffix=".php">/var/www/GeraAta/library/</directory>
+                <directory suffix=".php">/var/www/GeraAta/library/Zend/</directory>
 		<file>/var/www/GeraAta/application/Bootstrap.php</file>
 	    </exclude>
 	</whitelist>
