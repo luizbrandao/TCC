@@ -19,10 +19,12 @@ Descricao dos Pontos:
 <p>
 Presentes:
 	<ul>
-	<?php foreach($this->ata['presentes'] as $presentes): ?>
-		<li> <?php echo $presentes; ?></li>
+	<?php foreach($this->ata['presentes'] as $row): ?>
+		<li> <?php echo $row; ?></li>
 	<?php endforeach; ?>
 	</ul>
 </p>
 <p>Descricao: <?php echo $this->ata['descricao']; ?></p>
-<p>Status: <?php echo $this->ata['status']; ?></p>
+<p>Status: <?php echo ($this->ata['status'] == 0) ? "Salvo" : "Homologado"; ?></p>
+<input type="button" id="voltar" class="btn btn-danger" value="Voltar"><br/><br/>
+<script src="<?php echo $this->baseUrl(); ?>/public/js/botaoVoltar.js"></script>

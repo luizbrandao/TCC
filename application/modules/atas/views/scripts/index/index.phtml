@@ -12,11 +12,15 @@
 	<tbody>
 		<?php foreach($this->atas as $ata): ?>
 			<tr>
-				<td><a href="<?php echo $this->baseUrl(); ?>/atas/index/view/id/<?php echo $ata->id; ?>"><?php echo $ata->assunto; ?></a></td>
+				<td>
+					<a href="<?php echo $this->baseUrl(); ?>/atas/index/view/id/<?php echo $ata->id; ?>"><?php echo $ata->assunto; ?></a>
+				</td>
 				<td><?php echo $ata->descricao; ?></td>
 				<td><?php echo $ata->data; ?></td>
-				<td><?php echo $ata->status; ?></td>
-				<td></td>
+				<td><?php echo ($ata->status == 0) ? "Salvo" : "Homologado"; ?></td>
+				<td>
+					<a class="btn btn-primary" href="<?php echo $this->baseUrl(); ?>/atas/index/update/id/<?php echo $ata->id; ?>">Homologar</a>
+				</td>
 			</tr>
 		<?php endforeach; ?>			
 	</tbody>
