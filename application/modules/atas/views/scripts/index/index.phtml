@@ -15,7 +15,7 @@
 				<td><a href="<?php echo $this->baseUrl(); ?>/atas/index/view/id/<?php echo $ata->id; ?>"><?php echo $ata->assunto; ?></a></td>
 				<td><?php echo $ata->descricao; ?></td>
 				<td><?php echo $ata->data; ?></td>
-				<td><?php echo $ata->status; ?></td>
+				<td><?php echo $ata['status']; ?></td>
 			</tr>
 		<?php endforeach; ?>			
 	</tbody>
