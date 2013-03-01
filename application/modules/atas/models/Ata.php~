@@ -52,7 +52,7 @@ class Atas_Model_Ata {
 				$ata->presentes = $row['presentes'];
 				$ata->descricao = $row['descricao'];
 				$ata->descricaoPontos = $row['descricaoPontos'];
-				$ata->status = $row['status'];
+				$ata->status = $row['descricaoPontos'];
 				$atas[] = $ata;
 			}
 			
