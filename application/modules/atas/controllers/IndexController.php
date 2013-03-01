@@ -37,18 +37,24 @@ class Atas_IndexController extends Zend_Controller_Action {
 		
 		if($this->request->getParam('salvar')){
 			$ata->status = 0;
-			echo '<pre>';
-			print_r($ata);
+			$ataSalvar = new Atas_Model_Ata();
+			$ataSalvar->add($ata);
 		}
 		if($this->request->getParam('homologar')){
 			$ata->status = 1;
-			echo '<pre>';
-			print_r($ata);
+			$ataSalvar = new Atas_Model_Ata();
+			$ataSalvar->add($ata);
 		}
 	}
 
 	public function viewAction() {
-		// action body
+		$this->request = $this->getRequest();
+		$ata = new Application_Model_Ata();
+		$ata->id = $this->request->getParam('id');
+
+		$a = new Atas_Model_Ata();
+		
+		$this->view->ata = $a->find($ata);		
 	}
 
 }
