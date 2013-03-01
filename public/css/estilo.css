@@ -25,6 +25,13 @@
 }
 
 .assinaturas{
-	padding-top: 10px;
-	text-align: center;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#usuarios .checkbox{
+    padding-top: 0px;
+    float: left;
+    width: 35%;
+    margin-right: 1%;
 }
