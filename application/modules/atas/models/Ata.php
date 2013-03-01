@@ -5,8 +5,8 @@ class Atas_Model_Ata {
 	public function add($ata) {
 		//Metodo para Adicao de Atas
 		try{
-			$banco = new Ata_Model_Banco();
-			$colecao = $banco->atas;
+			$conexao = new Atas_Model_Banco();
+			$db = $conexao->getConnection();
 			$array = array(
 				'assunto' => $ata->assunto,
 				'data' => $ata->data,
@@ -16,7 +16,7 @@ class Atas_Model_Ata {
 				'descricaoPontos' => $ata->descricaoPontos,
 				'status' => $ata->status,
 			);
-			$colecao->save($array);
+			$db->atas->insert($array);
 			return true;
 		}catch(Exception $e){
 			throw new Exception($e->getMessage());			
@@ -34,7 +34,7 @@ class Atas_Model_Ata {
 			$ataRowSet = $colecao->findOne($array);
 			$ataResultado = new Application_Model_Ata();
 			foreach ($ataRowSet as $row) {
-				$ataResultado->id = $row['_id'],
+				$ataResultado->id = $row['_id'];
 				$ataResultado->assunto = $row['assunto'];
 				$ataResultado->data = $row['data'];
 				$ataResultado->pautas = $row['pautas'];

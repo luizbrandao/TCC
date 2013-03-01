@@ -39,11 +39,13 @@ class Atas_IndexController extends Zend_Controller_Action {
 			$ata->status = 0;
 			$ataSalvar = new Atas_Model_Ata();
 			$ataSalvar->add($ata);
+			$this->_helper->redirector('index', 'index', 'atas');
 		}
 		if($this->request->getParam('homologar')){
 			$ata->status = 1;
 			$ataSalvar = new Atas_Model_Ata();
 			$ataSalvar->add($ata);
+			$this->_helper->redirector('index', 'index', 'atas');
 		}
 	}
 
