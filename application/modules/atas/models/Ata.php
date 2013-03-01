@@ -24,15 +24,17 @@ class Atas_Model_Ata {
 	}
 
 	public function find($ata){
-		//Metodo de buscar por atas apartir do seu ID
+		//Metodo que tem a finalidade de buscar por atas apartir do seu ID
 		try{
-			$banco = new Ata_Model_Banco();
-			$colecao = $banco->atas;
 			$array = array(
 				'_id' => new MongoId($ata->id)
 			);
-			$ataRowSet = $colecao->findOne($array);
+
+			$conexao = new Atas_Model_Banco();
+			$db = $conexao->getConnection();
+			$atasResultSet = $db->atas->findOne($array);
 			$ataResultado = new Application_Model_Ata();
+			
 			foreach ($ataRowSet as $row) {
 				$ataResultado->id = $row['_id'];
 				$ataResultado->assunto = $row['assunto'];
@@ -43,9 +45,37 @@ class Atas_Model_Ata {
 				$ataResultado->descricaoPontos = $row['descricaoPontos'];
 				$ataResultado->status = $row['descricaoPontos'];
 			}
+
 			return $ataResultado;
 		}catch(Exception $e){
 			throw new Exception($e->getMessage());
+		}
+	}
+
+	public function findAll(){
+		try{
+			$conexao = new Atas_Model_Banco();
+			$db = $conexao->getConnection();
+			$atasResultSet = $db->atas->find();
+			
+			$atas = new Application_Model_Ata();
+			foreach ($atasResultSet as $row) {
+				$ata = new Application_Model_Ata();
+				$ata->id = $row['_id'];
+				$ata->assunto = $row['assunto'];
+				$ata->data = $row['data'];
+				$ata->pautas = $row['pautas'];
+				$ata->presentes = $row['presentes'];
+				$ata->descricao = $row['descricao'];
+				$ata->descricaoPontos = $row['descricaoPontos'];
+				$ata->status = $row['descricaoPontos'];
+				$atas[] = $ata;
+			}
+			
+			return $atas;
+		}catch(Exception $e){
+			throw new Exception($e->getMessage());
+			
 		}
 	}
 }
