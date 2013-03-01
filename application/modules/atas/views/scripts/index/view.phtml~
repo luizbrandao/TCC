@@ -9,20 +9,16 @@ Pautas:
 	</ul>
 </p>
 <p>
-Descricao dos Pontos:
-	<ul> 
+Descricao dos Pontos: 
 	<?php foreach($this->ata['descricaoPontos'] as $descricao): ?>
 		<li> <?php echo $descricao; ?></li>
 	<?php endforeach; ?>
-	</ul>
 </p>
 <p>
-Presentes:
-	<ul>
+Presentes: <?php echo $this->ata['presentes']; ?>
 	<?php foreach($this->ata['presentes'] as $presentes): ?>
 		<li> <?php echo $presentes; ?></li>
 	<?php endforeach; ?>
-	</ul>
 </p>
 <p>Descricao: <?php echo $this->ata['descricao']; ?></p>
 <p>Status: <?php echo $this->ata['status']; ?></p>

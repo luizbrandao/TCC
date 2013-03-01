@@ -16,7 +16,6 @@
 				<td><?php echo $ata->descricao; ?></td>
 				<td><?php echo $ata->data; ?></td>
 				<td><?php echo $ata->status; ?></td>
-				<td></td>
 			</tr>
 		<?php endforeach; ?>			
 	</tbody>
