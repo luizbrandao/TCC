@@ -6,22 +6,15 @@ class Atas_IndexController extends Zend_Controller_Action {
 		/* Initialize action controller here */
 		$request = Zend_Controller_Front::getInstance()->getRequest();
 		$SessaoUsuario = new Zend_Session_Namespace('usuario');
-                if (Zend_Session::namespaceIsset('usuario')) {
-                        $this->view->usuario = $SessaoUsuario;
-                } else {
-                        $this->_helper->redirector('login', 'index', 'index');
-                }
+        if (Zend_Session::namespaceIsset('usuario')) {
+            $this->view->usuario = $SessaoUsuario;
+        } else {
+            $this->_helper->redirector('login', 'index', 'index');
+        }
 
 	}
 
 	public function indexAction() {
-		// action body
-		/*$SessaoUsuario = new Zend_Session_Namespace('usuario');
-		if (Zend_Session::namespaceIsset('usuario')) {
-			$this->view->usuario = $SessaoUsuario;
-		} else {
-			$this->_helper->redirector('login', 'index', 'index');
-		}*/
 		$ata = new Atas_Model_Ata();
 		$this->view->atas = $ata->findAll();
 	}

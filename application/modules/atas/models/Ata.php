@@ -36,7 +36,7 @@ class Atas_Model_Ata {
 			$atasResultSet = $db->atas->findOne($array);
 			$ataResultado = new Application_Model_Ata();
 			
-			foreach ($ataRowSet as $row) {
+			foreach ($atasRowSet as $row) {
 				$ataResultado->id = $row['_id'];
 				$ataResultado->assunto = $row['assunto'];
 				$ataResultado->data = $row['data'];
