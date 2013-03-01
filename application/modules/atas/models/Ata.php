@@ -34,7 +34,7 @@ class Atas_Model_Ata {
 			$ataRowSet = $colecao->findOne($array);
 			$ataResultado = new Application_Model_Ata();
 			foreach ($ataRowSet as $row) {
-				$ataResultado->id = $row['_id'],
+				$ataResultado->id = $row['_id'];
 				$ataResultado->assunto = $row['assunto'];
 				$ataResultado->data = $row['data'];
 				$ataResultado->pautas = $row['pautas'];
