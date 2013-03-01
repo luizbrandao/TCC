@@ -16,6 +16,7 @@ class Atas_Model_Ata {
 				'descricaoPontos' => $ata->descricaoPontos,
 				'status' => $ata->status,
 			);
+
 			$db->atas->insert($array);
 			return true;
 		}catch(Exception $e){
@@ -58,7 +59,7 @@ class Atas_Model_Ata {
 			$db = $conexao->getConnection();
 			$atasResultSet = $db->atas->find();
 			
-			$atas = new Application_Model_Ata();
+			$atas[] = new Application_Model_Ata();
 			foreach ($atasResultSet as $row) {
 				$ata = new Application_Model_Ata();
 				$ata->id = $row['_id'];

@@ -10,6 +10,10 @@
 		<th>Op&ccedil;&otilde;es</th>
 	</thead>
 	<tbody>
-				
+		<?php foreach($this->atas as $ata): ?>
+			<tr>
+				<td><a href="<?php echo $this->baseUrl(); ?>/atas/index/view/id/<?php echo $ata->id; ?>"><?php echo $ata->assunto; ?></a></td>
+			</tr>
+		<?php endforeach; ?>			
 	</tbody>
 </table>

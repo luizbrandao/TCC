@@ -5,17 +5,25 @@ class Atas_IndexController extends Zend_Controller_Action {
 	public function init() {
 		/* Initialize action controller here */
 		$request = Zend_Controller_Front::getInstance()->getRequest();
+		$SessaoUsuario = new Zend_Session_Namespace('usuario');
+                if (Zend_Session::namespaceIsset('usuario')) {
+                        $this->view->usuario = $SessaoUsuario;
+                } else {
+                        $this->_helper->redirector('login', 'index', 'index');
+                }
+
 	}
 
 	public function indexAction() {
 		// action body
-		$SessaoUsuario = new Zend_Session_Namespace('usuario');
+		/*$SessaoUsuario = new Zend_Session_Namespace('usuario');
 		if (Zend_Session::namespaceIsset('usuario')) {
 			$this->view->usuario = $SessaoUsuario;
 		} else {
 			$this->_helper->redirector('login', 'index', 'index');
-		}
-
+		}*/
+		$ata = new Atas_Model_Ata();
+		$this->view->atas = $ata->findAll();
 	}
 
 	public function addAction() {
@@ -24,7 +32,7 @@ class Atas_IndexController extends Zend_Controller_Action {
 		$ata = new Application_Model_Ata();
 		$ata->assunto = $this->request->getParam('assunto');
 		$ata->data = $this->request->getParam('data');
-		$ata->presentes[] = $this->request->getParam('presentes[]');
+		$ata->presentes[] = $this->request->getParam('presentes');
 
 		$qtdePautas = $this->request->getParam('qtdPautas');
 		for($i = 0; $i <= $qtdePautas; $i++) {
