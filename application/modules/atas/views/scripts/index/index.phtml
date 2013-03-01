@@ -13,7 +13,7 @@
 		<?php foreach($this->atas as $ata): ?>
 			<tr>
 				<td>
-					<a href="<?php echo $this->baseUrl(); ?>/atas/index/view/id/<?php echo $ata['_id']; ?>"><?php echo $ata->assunto; ?></a>
+					<a href="<?php echo $this->baseUrl(); ?>/atas/index/view/id/<?php echo $ata['_id']; ?>"><?php echo $ata['assunto']; ?></a>
 				</td>
 				<td><?php echo $ata['descricao']; ?></td>
 				<td><?php echo $ata['data']; ?></td>
