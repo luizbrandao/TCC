@@ -13,13 +13,13 @@
 		<?php foreach($this->atas as $ata): ?>
 			<tr>
 				<td>
-					<a href="<?php echo $this->baseUrl(); ?>/atas/index/view/id/<?php echo $ata->id; ?>"><?php echo $ata->assunto; ?></a>
+					<a href="<?php echo $this->baseUrl(); ?>/atas/index/view/id/<?php echo $ata['_id']; ?>"><?php echo $ata->assunto; ?></a>
 				</td>
-				<td><?php echo $ata->descricao; ?></td>
-				<td><?php echo $ata->data; ?></td>
-				<td><?php echo ($ata->status == 0) ? "Salvo" : "Homologado"; ?></td>
+				<td><?php echo $ata['descricao']; ?></td>
+				<td><?php echo $ata['data']; ?></td>
+				<td><?php echo ($ata['status'] == 0) ? "Salvo" : "Homologado"; ?></td>
 				<td>
-					<a class="btn btn-primary" href="<?php echo $this->baseUrl(); ?>/atas/index/update/id/<?php echo $ata->id; ?>">Homologar</a>
+					<a class="btn btn-primary" href="<?php echo $this->baseUrl(); ?>/atas/index/update/id/<?php echo $ata['_id']; ?>">Homologar</a>
 				</td>
 			</tr>
 		<?php endforeach; ?>			

@@ -40,21 +40,7 @@ class Atas_Model_Ata {
 		try{
 			$conexao = new Atas_Model_Banco();
 			$db = $conexao->getConnection();
-			$atasResultSet = $db->atas->find();
-			
-			$atas[] = new Application_Model_Ata();
-			foreach ($atasResultSet as $row) {
-				$ata = new Application_Model_Ata();
-				$ata->id = $row['_id'];
-				$ata->assunto = $row['assunto'];
-				$ata->data = $row['data'];
-				$ata->pautas = $row['pautas'];
-				$ata->presentes = $row['presentes'];
-				$ata->descricao = $row['descricao'];
-				$ata->descricaoPontos = $row['descricaoPontos'];
-				$ata->status = $row['status'];
-				$atas[] = $ata;
-			}
+			$atas = $db->atas->find();
 			
 			return $atas;
 		}catch(Exception $e){
