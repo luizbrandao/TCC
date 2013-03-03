@@ -3,7 +3,7 @@
         <div class="usuario">
             <h2 class="cabecalho">Sistema de Gerenciamento de Documentos</h2>
             <div class="btn-group">
-                <button class="btn"><i class="icon-user"></i> <?php echo utf8_decode($this->usuario->nome); ?></button>
+                <button class="btn"><i class="icon-user"></i> <?php echo $this->usuario->nome; ?></button>
                 <button class="btn dropdown-toggle" data-toggle="dropdown">
                     <span class="caret"></span>
                 </button>
@@ -16,6 +16,6 @@
     </div>
 </div>
 <p><h3>O que Deseja fazer?</h3></p>
-<a class="btn btn-info" href="<?php echo $this->baseUrl(); ?>/usuarios/index"><i class="icon-user"></i> Gerenciar Usuarios</a>
+<a class="btn btn-info" href="<?php echo $this->baseUrl(); ?>/usuarios/index"><i class="icon-user"></i> Gerenciar Usuários</a>
 <a class="btn btn-info" href="<?php echo $this->baseUrl(); ?>/atas/index/"><i class="icon-file"></i> Gerenciar Atas</a>
 <script src="<?php echo $this->baseUrl(); ?>/public/js/bootstrap-dropdown.js"></script>

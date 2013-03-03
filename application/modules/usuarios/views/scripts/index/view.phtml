@@ -1,3 +1,13 @@
-<h3>Nome: <?php echo utf8_decode($this->usuario['nome']);?></h3>
-<b>Email:</b> <?php echo $this->usuario['email'];?><br/>
-<b>username:</b> <?php echo $this->usuario['username'];?>
+<div>
+	<h3>Nome: <?php echo $this->usuario['nome'];?></h3>
+</div>
+<div>
+	<b>Email:</b> <?php echo $this->usuario['email'];?><br/>
+</div>
+<div>
+	<b>username:</b> <?php echo $this->usuario['username'];?>
+</div>
+<div>
+	<input type="button" id="voltar" class="btn btn-danger" value="Voltar">
+</div>
+<script src="<?php echo $this->baseUrl(); ?>/public/js/botaoVoltar.js"></script>
