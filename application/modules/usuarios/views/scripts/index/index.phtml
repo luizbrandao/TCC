@@ -1,5 +1,5 @@
 <h2>Usu&aacute;rios cadastrados</h2>
-<a class="btn btn-success" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/add"><i class="icon-user"></i> Adicionar Usuario</a>
+<a class="btn btn-success" href="<?php echo $this->baseUrl();?>/usuarios/index/add"><i class="icon-user"></i> Adicionar Usuário</a>
 <table class="table talbe-stripped table-hover">
 	<thead>
 		<tr>
@@ -14,7 +14,7 @@
 			<td><a href="<?php echo $this->baseUrl();?>/usuarios/index/view/id/<?php echo $usuario['_id'];?>"><?php echo utf8_decode($usuario['nome']);?></a></td>
 			<td><?php echo $usuario['email'];?></td>
 			<td>
-				<a class="btn btn-primary" href="<?php echo $this->baseUrl();?>/index.php/usuarios/index/update/id/<?php echo $usuario['_id'];?>">Editar</a>
+				<a class="btn btn-primary" href="<?php echo $this->baseUrl();?>/usuarios/index/update/id/<?php echo $usuario['_id'];?>">Editar</a>
 				<button target="#myModal" id="excluir" value="<?php echo $usuario['_id'];?>" role="button" class="btn btn-danger" data-toggle="modal">Remover</button>
 			</td>
 		</tr>

@@ -8,11 +8,11 @@ $("button").each(function() {
 
 $("#confirma").click(function() {
 	jQuery.ajax({
-		url : "/GeraAta/public/index.php/usuarios/index/delete/id/" + id,
+		url : "/GeraAta/usuarios/index/delete/id/" + id,
 		type : "POST",
 		dataType : 'json',
 		success : function(data) {
-			alert("Usuario removido com sucesso " + id);
+			alert("Usuário removido com sucesso");
 		},
 		error : function() {
 			alert(id);
