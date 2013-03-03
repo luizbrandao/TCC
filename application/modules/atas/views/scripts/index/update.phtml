@@ -3,7 +3,7 @@
 <p>
     <h3>Atualizando Ata</h3>
 </p>
-<form class="form-horizontal" action="" method="post" name="adicionar">
+<form class="form-horizontal" action="" method="post" name="atualizar">
     <div class="tabbable"> <!-- Only required for left/right tabs -->
         <ul class="nav nav-tabs">
             <li class="active"><a href="#tab1" data-toggle="tab">Dados Inicias da Ata</a></li>
@@ -15,20 +15,18 @@
                 <div class="control-group">
                     <label class="control-label" for="assunto">Assunto</label>
                     <div class="controls">
-                        <input type="text" name="assunto" id="assunto-form" placeholder="Assunto">
+                        <input type="text" name="assunto" id="assunto-form" placeholder="Assunto" value="<?php echo $this->ata['assunto'];?>">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="data">Data</label>
                     <div class="controls">
-                        <input type="text" name="data" id="data-form" placeholder="Data">
+                        <input type="text" name="data" id="data-form" placeholder="Data" value="<?php echo $this->ata['data']; ?>">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="presente">Pessoas Presentes</label>
-                    <div id="usuarios" class="controls">
-
-                    </div>
+                    <div id="usuarios" class="controls"></div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="pontos">Pontos de Pauta</label>
@@ -41,7 +39,7 @@
                 <div class="control-group">
                     <label class="control-label" for="descricaco">Descri&ccedil;&atilde;o</label>
                     <div class="controls">
-                        <textarea name="descricao" id="descricao-form"></textarea>
+                        <textarea name="descricao" id="descricao-form" value="<?php echo $this->ata['descricao']; ?>"></textarea>
                     </div>
                 </div>
             </div>
@@ -60,7 +58,7 @@
                     <p><span id="descricao-ajax"></span></p>
                 </div>
                 <div id="pontos" class="pontos">
-                    <p><b>Ponto de Pauta</b> </p>
+                    <p><b>Ponto de Pauta</b></p>
                     
                     <div id="Lista-pontos-ajax"></div>
                    
@@ -69,7 +67,6 @@
                     <p><strong>Pessoas presentes</strong></p>
                     <ul id="presentes-ajax"></ul>
                     <div class="controls">
-                        <input type="submit" id="salvar" name="salvar" value="Salvar" class="btn btn-primary">
                         <input type="submit" id="homologar" name="homologar" value="Homologar" class="btn btn-success">
                     </div>
                 </div>
