@@ -2,26 +2,27 @@
 <hr>
 <a href="<?php echo $this->baseUrl(); ?>/atas/index/add" class="btn btn-success"><i class="icon-file"></i> Adicionar Ata</a>
 <table class="table table-striped">
-	<thead>
-		<th>Assunto</th>
-		<th>Descri&ccedil;&atilde;o</th>
-		<th>Data</th>
-		<th>Status</th>
-		<th>Op&ccedil;&otilde;es</th>
-	</thead>
-	<tbody>
-		<?php foreach($this->atas as $ata): ?>
-			<tr>
-				<td>
-					<a href="<?php echo $this->baseUrl(); ?>/atas/index/view/id/<?php echo $ata['_id']; ?>"><?php echo $ata['assunto']; ?></a>
-				</td>
-				<td><?php echo $ata['descricao']; ?></td>
-				<td><?php echo $ata['data']; ?></td>
-				<td><?php echo ($ata['status'] == 0) ? "Salvo" : "Homologado"; ?></td>
-				<td>
-					<a class="btn btn-primary" href="<?php echo $this->baseUrl(); ?>/atas/index/update/id/<?php echo $ata['_id']; ?>">Homologar</a>
-				</td>
-			</tr>
-		<?php endforeach; ?>			
-	</tbody>
+    <thead>
+    <th>Assunto</th>
+    <th>Descri&ccedil;&atilde;o</th>
+    <th>Data</th>
+    <th>Status</th>
+    <th>Op&ccedil;&otilde;es</th>
+</thead>
+<tbody>
+    <?php foreach ($this->atas as $ata): ?>
+        <tr>
+            <td>
+                <a href="<?php echo $this->baseUrl(); ?>/atas/index/view/id/<?php echo $ata['_id']; ?>"><?php echo $ata['assunto']; ?></a>
+            </td>
+            <td><?php echo $ata['descricao']; ?></td>
+            <td><?php echo $ata['data']; ?></td>
+            <td><?php echo ($ata['status'] == 0) ? "Salvo" : "Homologado"; ?></td>
+            <td>
+                <a class="btn btn-primary" name="homologar" id="homologar" href="<?php echo $this->baseUrl(); ?>/atas/index/update/id/<?php echo $ata['_id']; ?>">Homologar</a>
+                <input type="hidden" id="" name="" value="<?php echo $ata['status']; ?>">
+            </td>
+        </tr>
+    <?php endforeach; ?>			
+</tbody>
 </table>

@@ -5,16 +5,16 @@ class Usuarios_IndexController extends Zend_Controller_Action {
     public function init() {
         /* Initialize action controller here */
         $request = Zend_Controller_Front::getInstance()->getRequest();
+        $SessaoUsuario = new Zend_Session_Namespace('usuario');
+        if (Zend_Session::namespaceIsset('usuario')) {
+            $this->view->usuario = $SessaoUsuario;
+        } else {
+            $this->_helper->redirector('login', 'index', 'index');
+        }
     }
 
     public function indexAction() {
         // action body
-    	$SessaoUsuario = new Zend_Session_Namespace('usuario');
-    	if(Zend_Session::namespaceIsset('usuario')){
-    		$this->view->usuario = $SessaoUsuario;
-    	} else {
-    		$this->_helper->redirector('login', 'index', 'index');
-    	}
         $usuario = new Usuarios_Model_Usuario();
         $usuarios = $usuario->findAll();
         $this->view->usuarios = $usuarios;
@@ -22,14 +22,14 @@ class Usuarios_IndexController extends Zend_Controller_Action {
 
     public function addAction() {
         $this->request = $this->getRequest();
-        
+
         $usuario = array(
             'nome' => utf8_encode($this->request->getParam('nome')),
             'email' => $this->request->getParam('email'),
             'username' => $this->request->getParam('username'),
             'password' => $this->request->getParam('password'),
         );
-               
+
         $usuarios = new Usuarios_Model_Usuario();
         if ($this->request->getParam('password') != "" && $this->request->getParam('password') == $this->request->getParam('re-password')) {
             if ($usuarios->adicionar($usuario)) {
@@ -102,5 +102,4 @@ class Usuarios_IndexController extends Zend_Controller_Action {
     }
 
 }
-
 

@@ -19,9 +19,9 @@ Descricao dos Pontos:
 <p>
 Presentes:
 	<ul>
-	<?php foreach($this->ata['presentes'] as $row): ?>
-		<li> <?php echo $row; ?></li>
-	<?php endforeach; ?>
+	<?php for($i = 0; $i <= count($this->ata['presentes']); $i++): ?>
+		<li> <?php echo $this->ata['presentes'][$i]; ?></li>
+	<?php endfor; ?>
 	</ul>
 </p>
 <p>Descricao: <?php echo $this->ata['descricao']; ?></p>
