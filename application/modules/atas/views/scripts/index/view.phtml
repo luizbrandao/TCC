@@ -1,23 +1,38 @@
-<h3><?php echo $this->ata['assunto']; ?></h3>
-<p>Descricao: <?php echo $this->ata['descricao']; ?></p>
-<p>Data: <?php echo $this->ata['data']; ?></p>
-<p>
-Pautas:
-	<?php $contador = count($this->ata['pautas']) - 1;?>
-	<?php for($i = 0; $i <= $contador; $i++): ?>
-		<br/><b> <?php echo $this->ata['pautas'][$i]; ?></b><br/>
-		<?php echo $this->ata['descricaoPontos'][$i]; ?><br/>
-	<?php endfor; ?>
-</p>
-Presentes:
-	<ul>
-	<?php foreach($this->ata['presentes'] as $row => $linhas):?>
-		<?php  foreach($linhas as $linha): ?>
-			<li><?php echo $linha; ?></li>
-		<?php endforeach;?>
-	<?php endforeach; ?>
-	</ul>
-</p>
-<p>Status: <?php echo ($this->ata['status'] == 0) ? "Salvo" : "Homologado"; ?></p>
-<input type="button" id="voltar" class="btn btn-danger" value="Voltar"><br/><br/>
+<div>
+	<h3><?php echo $this->ata['assunto']; ?></h3>
+</div>
+<div>
+	<p>Descricao: <?php echo $this->ata['descricao']; ?></p>
+</div>
+<div>
+	<p>Data: <?php echo $this->ata['data']; ?></p>
+</div>
+<div>
+	<p>
+		Pautas:<br/>
+		<?php $contador = count($this->ata['pautas']) - 1;?>
+		<?php for($i = 0; $i <= $contador; $i++): ?>
+			<b><?php echo $this->ata['pautas'][$i]; ?></b><br/>
+			<?php echo $this->ata['descricaoPontos'][$i]; ?><br/>
+		<?php endfor; ?>
+	</p>	
+</div>
+<div>
+	<p>
+		Presentes:
+		<ul>
+		<?php foreach($this->ata['presentes'] as $row => $linhas):?>
+			<?php  foreach($linhas as $linha): ?>
+				<li><?php echo $linha; ?></li>
+			<?php endforeach;?>
+		<?php endforeach; ?>
+		</ul>
+	</p>	
+</div>
+<div>
+	<p>Status: <?php echo ($this->ata['status'] == 0) ? "Salvo" : "Homologado"; ?></p>
+</div>
+<div>
+	<input type="button" id="voltar" class="btn btn-danger" value="Voltar"><br/><br/>	
+</div>
 <script src="<?php echo $this->baseUrl(); ?>/public/js/botaoVoltar.js"></script>
