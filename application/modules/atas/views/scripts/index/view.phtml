@@ -1,30 +1,23 @@
 <h3><?php echo $this->ata['assunto']; ?></h3>
+<p>Descricao: <?php echo $this->ata['descricao']; ?></p>
 <p>Data: <?php echo $this->ata['data']; ?></p>
 <p>
 Pautas:
-	<ul> 
-	<?php foreach($this->ata['pautas'] as $pautas): ?>
-		<li> <?php echo $pautas; ?></li>
-	<?php endforeach; ?>	
-	</ul>
+	<?php $contador = count($this->ata['pautas']) - 1;?>
+	<?php for($i = 0; $i <= $contador; $i++): ?>
+		<br/><b> <?php echo $this->ata['pautas'][$i]; ?></b><br/>
+		<?php echo $this->ata['descricaoPontos'][$i]; ?><br/>
+	<?php endfor; ?>
 </p>
-<p>
-Descricao dos Pontos:
-	<ul> 
-	<?php foreach($this->ata['descricaoPontos'] as $descricao): ?>
-		<li> <?php echo $descricao; ?></li>
+Presentes:
+	<ul>
+	<?php foreach($this->ata['presentes'] as $row => $linhas):?>
+		<?php  foreach($linhas as $linha): ?>
+			<li><?php echo $linha; ?></li>
+		<?php endforeach;?>
 	<?php endforeach; ?>
 	</ul>
 </p>
-<p>
-Presentes:
-	<ul>
-	<?php for($i = 0; $i <= count($this->ata['presentes']); $i++): ?>
-		<li> <?php echo $this->ata['presentes'][$i]; ?></li>
-	<?php endfor; ?>
-	</ul>
-</p>
-<p>Descricao: <?php echo $this->ata['descricao']; ?></p>
 <p>Status: <?php echo ($this->ata['status'] == 0) ? "Salvo" : "Homologado"; ?></p>
 <input type="button" id="voltar" class="btn btn-danger" value="Voltar"><br/><br/>
 <script src="<?php echo $this->baseUrl(); ?>/public/js/botaoVoltar.js"></script>
