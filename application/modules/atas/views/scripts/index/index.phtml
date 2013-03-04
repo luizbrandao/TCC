@@ -21,10 +21,18 @@
                 <td><?php echo $ata['data']; ?></td>
                 <td><?php echo ($ata['status'] == 0) ? "Salvo" : "Homologado"; ?></td>
                 <td>
-                    <a class="btn btn-primary" name="homologar" id="homologar" href="<?php echo $this->baseUrl(); ?>/atas/index/update/id/<?php echo $ata['_id']; ?>">Homologar</a>
-                    <input type="hidden" id="" name="" value="<?php echo $ata['status']; ?>">
+                    <a class="btn btn-primary" name="homologar" id="homologar-<?php echo $ata['_id']; ?>" href="<?php echo $this->baseUrl(); ?>/atas/index/update/id/<?php echo $ata['_id']; ?>">Homologar</a>
+                    <input type="hidden" class="status" alt="#homologar-<?php echo $ata['_id']; ?>" value="<?php echo $ata['status']; ?>">
                 </td>
             </tr>
         <?php endforeach; ?>			
     </tbody>
 </table>
+<script>
+$(".status").each(function(i){
+if($(this).val() == 1){
+ ref = $(this).attr("alt");
+ $(ref).hide();
+}
+});
+</script>
