@@ -24,7 +24,7 @@ class Usuarios_IndexController extends Zend_Controller_Action {
         $this->request = $this->getRequest();
 
         $usuario = array(
-            'nome' => utf8_encode($this->request->getParam('nome')),
+            'nome' => $this->request->getParam('nome'),
             'email' => $this->request->getParam('email'),
             'username' => $this->request->getParam('username'),
             'password' => $this->request->getParam('password'),
