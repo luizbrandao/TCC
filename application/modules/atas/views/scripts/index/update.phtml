@@ -26,7 +26,11 @@
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="presente">Pessoas Presentes</label>
-                    <div id="usuarios" class="controls"></div>
+                    <div id="usuarios" class="controls">
+                        <?php foreach ($this->ata['presentes'] as $row): ?>
+                            <label class="checkbox"><input type="checkbox" name="presentes[]"  value="<?php echo $row; ?>"><?php echo $row; ?></label>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="pontos">Pontos de Pauta</label>
@@ -45,6 +49,13 @@
             </div>
             <div class="tab-pane" id="tab2" name="tab2">
                 <div id="ajax-pontos" class="control-group">
+                    <?php foreach ($this->ata['pontosDescricao'] as $row): ?>
+                        <div id="pontos-div">
+                            <label class="control-label" for="descPontos" id="desc"></label>
+                            <div class="controls"><textarea name="descPontos" id="descPontos">$row</textarea>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <div class="tab-pane" id="tab3" name="tab3">

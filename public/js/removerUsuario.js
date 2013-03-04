@@ -15,7 +15,7 @@ $("#confirma").click(function() {
 			alert("Usuário removido com sucesso");
 		},
 		error : function() {
-			alert(id);
+			
 		}
 	});
 });
