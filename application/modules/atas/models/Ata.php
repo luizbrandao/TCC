@@ -65,9 +65,29 @@ class Atas_Model_Ata {
 					'status' => $ata->status,
 				))
 			);
-			$db->atas->update($array);
-			return true;
+			
+			$a = array(
+				array('_id' => new MongoId($ata->id)),
+				array(
+					'$set'=>array(
+						'assunto' => $ata->assunto,
+						'data' => $ata->data,
+						'pautas' => $ata->pautas,
+						'presentes' => $ata->presentes,
+						'descricao' => $ata->descricao,
+						'descricaoPontos' => $ata->descricaoPontos,
+						'status' => $ata->status,
+					)
+				)
+			);
+			echo "<pre>";
+			print_r($a);
+			/*$db->atas->update(
+				$a
+			);
+			return true;*/
 		}catch(Exception $e){
+			return false;
 			throw new Exception($e->getMessage());
 		}
 	}

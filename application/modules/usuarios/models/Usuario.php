@@ -56,6 +56,7 @@ class Usuarios_Model_Usuario {
 											'password' => $usuario['password'],)));
 			return true;
 		} catch (Exception $e) {
+			return false;
 			throw new Exception($e->getMessage());
 		}
 	}
