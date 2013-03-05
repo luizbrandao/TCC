@@ -6,7 +6,7 @@ jQuery.ajax({
 		for($i = 0; $i < data.length; $i++){
 			$('#usuarios').append('<label class="checkbox"><input type="checkbox" name="presentes[]"  value="'+data[$i].nome+'">'+data[$i].nome+'</label>');
 		}
-		if($("#pagina-ref")=="update") {
+		if($("#pagina-ref").val()=="update") {
 			verifica_checked ();
 		}
 	},
