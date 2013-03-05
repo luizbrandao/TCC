@@ -63,6 +63,7 @@ class Usuarios_IndexController extends Zend_Controller_Action {
                 '_id' => $this->request->getParam('id'),
                 'nome' => $this->request->getParam('nome'),
                 'email' => $this->request->getParam('email'),
+                'username' => $this->request->getParam('username');
                 'password' => $this->request->getParam('password'),
             );
             if ($usuario->atualizar($usuarios)) {
