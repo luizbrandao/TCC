@@ -90,11 +90,9 @@ class Atas_IndexController extends Zend_Controller_Action
             $ata->descricao = $this->request->getParam('descricao');
             $ata->status = 1;
 
-            echo "<pre>";
-            print_r($ata);
-            /*if($a->update($ata)){
+            if($a->update($ata)){
                 $this->_helper->redirector('index', 'index', 'atas');
-            }*/
+            }
         }
     }
 

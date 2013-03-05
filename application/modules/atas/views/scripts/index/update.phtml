@@ -33,18 +33,14 @@
                     <label class="control-label" for="pontos">Pontos de Pauta</label>
                     <div id="pontos" class="controls">
                       <div align="right" id="adicionar" style="width:237px; padding-bottom:5px;">Adicionar Novo <i title="Adicionar Ponto de Pauta" class="icon-plus"></i></div>
-
-                       			<?php 
-			$num = 0;
-			foreach($this->ata['pautas'] as $row): ?>
-				<div id="divCampo<?php echo $num; ?>">
-				<input type="text" class="campo" name="pontos<?php echo $num; ?>" data-ref="<?php echo $num; ?>" value="<?php echo $row; ?>"> <i class="icon-remove" title="Remover Ponto de Pauta" onClick="deletar('<?php echo $num; ?>')"></i><br/>
-			</div>
-			<?php $num = $num+1; ?>
-			<?php endforeach; ?>
+                        <?php $num = 0; ?>
+            			<?php foreach($this->ata['pautas'] as $row): ?>
+            				<div id="divCampo<?php echo $num; ?>">
+                				<input type="text" class="campo" name="pontos<?php echo $num; ?>" data-ref="<?php echo $num; ?>" value="<?php echo $row; ?>"> <i class="icon-remove" title="Remover Ponto de Pauta" onClick="deletar('<?php echo $num; ?>')"></i><br/>
+                			</div>
+                			<?php $num = $num+1; ?>
+            			<?php endforeach; ?>
                     </div>
-
-
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="descricaco">Descri&ccedil;&atilde;o</label>
