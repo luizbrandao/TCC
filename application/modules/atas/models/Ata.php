@@ -53,7 +53,7 @@ class Atas_Model_Ata {
 		try{
 			$conexao = new Atas_Model_Banco();
 			$db = $conexao->getConnection();
-			$array(
+			$array = array(
 				array("_id" => new MongoId($ata->id)),
 				array("$set"=>array(
 					'assunto' => $ata->assunto,
