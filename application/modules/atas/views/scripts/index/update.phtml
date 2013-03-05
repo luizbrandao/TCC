@@ -54,13 +54,14 @@
             </div>
             <div class="tab-pane" id="tab2" name="tab2">
                 <div id="ajax-pontos" class="control-group">
-                    <?php foreach ($this->ata['descricaoPontos'] as $row): ?>
+                    <?php $teste = count($this->ata['descricaoPontos']) - 1;?>
+		    <?php for ($i = 0;$i <= $teste;$i++): ?>
                         <div id="pontos-div">
-                            <label class="control-label" for="descPontos" id="desc"></label>
-                            <div class="controls"><textarea name="descPontos" id="descPontos"><?php echo $row; ?></textarea>
+                            <label class="control-label" for="descPontos" id="desc"><?php echo $this->ata['pautas'][$i];?></label>
+                            <div class="controls"><textarea name="descPontos" id="descPontos"><?php echo $this->ata['descricaoPontos'][$i]; ?></textarea>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    <?php endfor; ?>
                 </div>
             </div>
             <div class="tab-pane" id="tab3" name="tab3">
