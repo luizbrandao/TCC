@@ -108,13 +108,16 @@
 <script type="text/javascript">
 $(document).ready(function() {
 <?php foreach($this->ata['presentes'] as $row => $linhas): ?>
-
+alert("teste");
 <?php foreach($linhas as $linha): ?>
 $(":checkbox").each(function (i) {
 	alert($(this).val());
 if($(this).val() == "<?php echo utf8_decode($linha); ?>") {
 	$(this).checked(true);
-}});
+}
+
+
+});
 <?php endforeach; ?>
 <?php endforeach; ?>
 });
