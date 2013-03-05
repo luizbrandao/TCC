@@ -101,9 +101,6 @@
         <input id="voltar" type="button" class="btn btn-danger" value="Cancelar">
     </div>
 </div>
-<pre>
-	<?php print_r($this->ata);?>
-</pre>
 <!-- js para fazer funcionar as perfumarias -->
 <script src="<?php echo $this->baseUrl(); ?>/public/js/ui/jquery-ui.custom.js"></script>
 <script src="<?php echo $this->baseUrl(); ?>/public/js/ui/jquery.ui.datepicker.js"></script>
@@ -115,14 +112,14 @@
 <script src="<?php echo $this->baseUrl(); ?>/public/js/botaoVoltar.js"></script>
 <script type="text/javascript">
 function verifica_checked() {
-$(":checkbox").each(function (i) {
-<?php foreach($this->ata['presentes'] as $row => $linhas): ?>
-<?php foreach($linhas as $linha): ?>
-if($(this).val() == "<?php echo $linha; ?>") {
-	$(this).attr('checked','checked');
-}
-<?php endforeach; ?>
-<?php endforeach; ?>
-});
+    $(":checkbox").each(function (i) {
+        <?php foreach($this->ata['presentes'] as $row => $linhas): ?>
+            <?php foreach($linhas as $linha): ?>
+                if($(this).val() == "<?php echo $linha; ?>") {
+                	$(this).attr('checked','checked');
+                }
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+    });
 }
 </script>

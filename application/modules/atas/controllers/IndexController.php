@@ -75,6 +75,27 @@ class Atas_IndexController extends Zend_Controller_Action
     	
     	$a = new Atas_Model_Ata();
     	$this->view->ata = $a->find($ata);
+
+        if($this->request->getParam('homologar')){
+            $ata->assunto = $this->request->getParam('assunto');
+            $ata->data = $this->request->getParam('data');
+            $ata->presentes[] = $this->request->getParam('presentes');
+            $qtdePautas = $this->request->getParam('qtdPautas');
+            for ($i = 0; $i <= $qtdePautas; $i++) {
+                if ($this->request->getParam('pontos' . $i)) {
+                    $ata->pautas[] = $this->request->getParam('pontos' . $i);
+                    $ata->descricaoPontos[] = $this->request->getParam('descPontos' . $i);
+                }
+            }
+            $ata->descricao = $this->request->getParam('descricao');
+            $ata->status = 1;
+
+            echo "<pre>";
+            print_r($ata);
+            /*if($a->update($ata)){
+                $this->_helper->redirector('index', 'index', 'atas');
+            }*/
+        }
     }
 
 

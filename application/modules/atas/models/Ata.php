@@ -48,4 +48,13 @@ class Atas_Model_Ata {
 			
 		}
 	}
+
+	public function update($ata){
+		try{
+			
+			return true;
+		}catch(Exception $e){
+			throw new Exception($e->getMessage());
+		}
+	}
 }
