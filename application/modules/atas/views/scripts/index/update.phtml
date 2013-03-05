@@ -27,15 +27,20 @@
                 <div class="control-group">
                     <label class="control-label" for="presente">Pessoas Presentes</label>
                     <div id="usuarios" class="controls">
-                        <?php foreach ($this->ata['presentes'] as $row): ?>
-                            <label class="checkbox"><input type="checkbox" name="presentes[]"  value="<?php echo $row; ?>"><?php echo $row; ?></label>
+                        <?php foreach($this->ata['presentes'] as $row => $linhas): ?>
+            				<?php foreach($linhas as $linha): ?>
+                            	<label class="checkbox"><input type="checkbox" name="presentes[]"  value="<?php echo utf8_decode($linha); ?>" checked><?php echo utf8_decode($linha); ?></label>
+            				<?php endforeach; ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="pontos">Pontos de Pauta</label>
                     <div id="pontos" class="controls">
-                        <input type="text" class="campo" name="pontos0" data-ref="0">
+			<?php foreach($this->ata['pautas'] as $row): ?>
+				<?php $i = 0; $i++; ?>
+				<input type="text" class="campo" name="pontos<?php echo $i; ?>" data-ref="<?php echo $i; ?>" value="<?php echo $row; ?>"><br/>
+			<?php endforeach; ?>
                         <i id="adicionar" title="Adicionar Ponto de Pauta" class="icon-plus"></i>
                         <div id="pontos"></div>
                     </div>
@@ -49,13 +54,14 @@
             </div>
             <div class="tab-pane" id="tab2" name="tab2">
                 <div id="ajax-pontos" class="control-group">
-                    <?php foreach ($this->ata['pontosDescricao'] as $row): ?>
+                    <?php $teste = count($this->ata['descricaoPontos']) - 1;?>
+        		    <?php for ($i = 0;$i <= $teste;$i++): ?>
                         <div id="pontos-div">
-                            <label class="control-label" for="descPontos" id="desc"></label>
-                            <div class="controls"><textarea name="descPontos" id="descPontos"></textarea>
+                            <label class="control-label" for="descPontos" id="desc"><?php echo $this->ata['pautas'][$i];?></label>
+                            <div class="controls"><textarea name="descPontos" id="descPontos"><?php echo $this->ata['descricaoPontos'][$i]; ?></textarea>
                             </div>
                         </div>
-                    <?php endforeach;?>
+                    <?php endfor; ?>
                 </div>
             </div>
             <div class="tab-pane" id="tab3" name="tab3">
@@ -70,7 +76,6 @@
                 </div>
                 <div id="pontos" class="pontos">
                     <p><b>Ponto de Pauta</b></p>
-                    
                     <div id="Lista-pontos-ajax"></div>
                    
                 </div>
@@ -93,6 +98,9 @@
         <input id="voltar" type="button" class="btn btn-danger" value="Cancelar">
     </div>
 </div>
+<pre>
+	<?php print_r($this->ata);?>
+</pre>
 <!-- js para fazer funcionar as perfumarias -->
 <script src="<?php echo $this->baseUrl(); ?>/public/js/ui/jquery-ui.custom.js"></script>
 <script src="<?php echo $this->baseUrl(); ?>/public/js/ui/jquery.ui.datepicker.js"></script>

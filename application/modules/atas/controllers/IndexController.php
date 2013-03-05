@@ -12,7 +12,7 @@ class Atas_IndexController extends Zend_Controller_Action
             $this->view->usuario = $SessaoUsuario;
         } else {
             $this->_helper->redirector('login', 'index', 'index');
-	    }
+	}
         
     }
 
@@ -51,7 +51,7 @@ class Atas_IndexController extends Zend_Controller_Action
             $ataSalvar = new Atas_Model_Ata();
             $ataSalvar->add($ata);
             $this->_helper->redirector('index', 'index', 'atas');
-	    }
+	}
         
     }
 

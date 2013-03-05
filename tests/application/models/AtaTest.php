@@ -5,6 +5,7 @@ require_once('/var/www/GeraAta/application/modules/atas/models/Ata.php');
 require_once('/var/www/GeraAta/application/modules/atas/models/Banco.php');
 
 class AtaTest extends PHPUnit_Framework_TestCase {
+	
 	public function testAtaAppModel() {
 		$a = new Application_Model_Ata();
 		$this->assertTrue(!empty($a));
