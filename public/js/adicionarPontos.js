@@ -1,12 +1,23 @@
 var i = 0;
-$("#ajax-pontos")
+		if( $('#pagina-ref').length )
+        {
+		} else {
+		$("#ajax-pontos")
 		.append(
 				'<div id="pontos-div0"><label class="control-label" for="descricaco" id="desc0"></label><div class="controls"><textarea name="descPontos0" id="descPontos0"></textarea></div></div>');
-
+		}
 $('#adicionar')
 		.click(
 				function() {
-					i++;
+					
+					if( $('#pagina-ref').length )
+        {            
+		                       var numpontos = parseInt($("#qtdPautas").val());
+								i =  numpontos+1;
+
+		} else {
+			i++;
+		}
 					$("#pontos")
 							.append(
 									'<div id="divCampo'

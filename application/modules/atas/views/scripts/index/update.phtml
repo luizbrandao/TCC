@@ -32,13 +32,19 @@
                 <div class="control-group">
                     <label class="control-label" for="pontos">Pontos de Pauta</label>
                     <div id="pontos" class="controls">
-			<?php foreach($this->ata['pautas'] as $row): ?>
-				<?php $i = 0; $i++; ?>
-				<input type="text" class="campo" name="pontos<?php echo $i; ?>" data-ref="<?php echo $i; ?>" value="<?php echo $row; ?>"><br/>
+                      <div align="right" id="adicionar" style="width:237px; padding-bottom:5px;">Adicionar Novo <i title="Adicionar Ponto de Pauta" class="icon-plus"></i></div>
+
+                       			<?php 
+			$num = 0;
+			foreach($this->ata['pautas'] as $row): ?>
+				<div id="divCampo<?php echo $num; ?>">
+				<input type="text" class="campo" name="pontos<?php echo $num; ?>" data-ref="<?php echo $num; ?>" value="<?php echo $row; ?>"> <i class="icon-remove" title="Remover Ponto de Pauta" onClick="deletar('<?php echo $num; ?>')"></i><br/>
+			</div>
+			<?php $num = $num+1; ?>
 			<?php endforeach; ?>
-                        <i id="adicionar" title="Adicionar Ponto de Pauta" class="icon-plus"></i>
-                        <div id="pontos"></div>
                     </div>
+
+
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="descricaco">Descri&ccedil;&atilde;o</label>
@@ -49,13 +55,14 @@
             </div>
             <div class="tab-pane" id="tab2" name="tab2">
                 <div id="ajax-pontos" class="control-group">
-                    <?php $teste = count($this->ata['descricaoPontos']) - 1;?>
+                    <?php $teste = count($this->ata['descricaoPontos']) - 1; $totalPontos="";?>
 		    <?php for ($i = 0;$i <= $teste;$i++): ?>
-                        <div id="pontos-div">
-                            <label class="control-label" for="descPontos" id="desc"><?php echo $this->ata['pautas'][$i];?></label>
-                            <div class="controls"><textarea name="descPontos" id="descPontos"><?php echo $this->ata['descricaoPontos'][$i]; ?></textarea>
+                        <div id="pontos-div<? echo $i;?>">
+                            <label class="control-label" for="descPontos<? echo $i;?>" id="desc<? echo $i;?>"><?php echo $this->ata['pautas'][$i];?></label>
+                            <div class="controls"><textarea name="descPontos<? echo $i;?>" id="descPontos<? echo $i;?>"><?php echo $this->ata['descricaoPontos'][$i]; ?></textarea>
                             </div>
                         </div>
+                        <? $totalPontos = $totalPontos+$i; ?>
                     <?php endfor; ?>
                 </div>
             </div>
@@ -84,7 +91,7 @@
             </div>
         </div>
     </div>
-    <input name="qtdPautas" id="qtdPautas" type="hidden" value="1" />
+    <input name="qtdPautas" id="qtdPautas" type="hidden" value="<? echo $totalPontos; ?>" />
     <input name="pagina-ref" id="pagina-ref" type="hidden" value="update" />
 </form>
 <div class="control-group">
@@ -108,14 +115,14 @@
 <script src="<?php echo $this->baseUrl(); ?>/public/js/botaoVoltar.js"></script>
 <script type="text/javascript">
 function verifica_checked() {
+$(":checkbox").each(function (i) {
 <?php foreach($this->ata['presentes'] as $row => $linhas): ?>
 <?php foreach($linhas as $linha): ?>
-$(":checkbox").each(function (i) {
-if($(this).val() == "<?php echo utf8_decode($linha); ?>") {
+if($(this).val() == "<?php echo $linha; ?>") {
 	$(this).attr('checked','checked');
 }
+<?php endforeach; ?>
+<?php endforeach; ?>
 });
-<?php endforeach; ?>
-<?php endforeach; ?>
 }
 </script>
