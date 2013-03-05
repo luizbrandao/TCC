@@ -111,7 +111,8 @@ $(document).ready(function() {
 
 <?php foreach($linhas as $linha): ?>
 $(".checkbox").each(function (i) {
-if($(this, "input:checkbox").val() = "<?php echo utf8_decode($linha); ?>") {
+	alert($(this, "input:checkbox").val());
+if($(this, "input:checkbox").val() == "<?php echo utf8_decode($linha); ?>") {
 	$(this,"input:checkbox").checked(true);
 }});
 <?php endforeach; ?>
