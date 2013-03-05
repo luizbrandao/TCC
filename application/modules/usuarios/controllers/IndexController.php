@@ -90,7 +90,7 @@ class Usuarios_IndexController extends Zend_Controller_Action {
         $this->view->usuarios = $usuarios;
         $data = "";
         foreach ($usuarios as $row) {
-            $data[] = array('nome' => utf8_decode($row['nome']));
+            $data[] = array('nome' => $row['nome']);
         }
         $this->_helper->json($data);
         $this->_helper->layout->disableLayout();
