@@ -105,15 +105,15 @@
 <script src="<?php echo $this->baseUrl(); ?>/public/js/ajaxUsuarios.js"></script>
 <script src="<?php echo $this->baseUrl(); ?>/public/js/datepicker.js"></script>
 <script src="<?php echo $this->baseUrl(); ?>/public/js/botaoVoltar.js"></script>
-<script>
+<script type="text/javascript">
 $(document).ready(function() {
 <?php foreach($this->ata['presentes'] as $row => $linhas): ?>
 
 <?php foreach($linhas as $linha): ?>
-$(".checkbox").each(function (i) {
-	alert($(this, "input:checkbox").val());
-if($(this, "input:checkbox").val() == "<?php echo utf8_decode($linha); ?>") {
-	$(this,"input:checkbox").checked(true);
+$(":checkbox").each(function (i) {
+	alert($(this).val());
+if($(this).val() == "<?php echo utf8_decode($linha); ?>") {
+	$(this).checked(true);
 }});
 <?php endforeach; ?>
 <?php endforeach; ?>
