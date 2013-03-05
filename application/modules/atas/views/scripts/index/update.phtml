@@ -27,11 +27,6 @@
                 <div class="control-group">
                     <label class="control-label" for="presente">Pessoas Presentes</label>
                     <div id="usuarios" class="controls">
-                        <?php foreach($this->ata['presentes'] as $row => $linhas): ?>
-				<?php foreach($linhas as $linha): ?>
-                            		<label class="checkbox"><input type="checkbox" name="presentes[]"  value="<?php echo utf8_decode($linha); ?>" checked><?php echo utf8_decode($linha); ?></label>
-				<?php endforeach; ?>
-                        <?php endforeach; ?>
                     </div>
                 </div>
                 <div class="control-group">
@@ -110,3 +105,13 @@
 <script src="<?php echo $this->baseUrl(); ?>/public/js/ajaxUsuarios.js"></script>
 <script src="<?php echo $this->baseUrl(); ?>/public/js/datepicker.js"></script>
 <script src="<?php echo $this->baseUrl(); ?>/public/js/botaoVoltar.js"></script>
+<script>
+<?php foreach($this->ata['presentes'] as $row => $linhas): ?>
+<?php foreach($linhas as $linha): ?>
+$(".checkbox" ).each(function (i) {
+if($(this).val() = "<?php echo utf8_decode($linha); ?>") {
+	$(this).checked(true);
+}});
+<?php endforeach; ?>
+<?php endforeach; ?>
+</script>
