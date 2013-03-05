@@ -7,6 +7,7 @@ $("button").each(function() {
 });
 
 $("#confirma").click(function() {
+		$("#user-"+id).remove();
 	jQuery.ajax({
 		url : "/GeraAta/usuarios/index/delete/id/" + id,
 		type : "POST",

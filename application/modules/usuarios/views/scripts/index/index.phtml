@@ -1,4 +1,5 @@
-<h3>Usu&aacute;rios cadastrados</h3>
+<h3>Gerenciar Usu&aacute;rios</h3>
+<hr />
 <a class="btn btn-success" href="<?php echo $this->baseUrl();?>/usuarios/index/add"><i class="icon-user"></i> Adicionar Usu&aacute;rio</a>
 <table class="table talbe-stripped table-hover">
 	<thead>
@@ -10,8 +11,8 @@
 	</thead>
 	<tbody>
 	<?php foreach($this->usuarios as $usuario): ?>
-		<tr>
-			<td><a href="<?php echo $this->baseUrl();?>/usuarios/index/view/id/<?php echo $usuario['_id'];?>"><?php echo utf8_decode($usuario['nome']);?></a></td>
+		<tr id="user-<?php echo $usuario['_id'];?>">
+			<td><a href="<?php echo $this->baseUrl();?>/usuarios/index/view/id/<?php echo $usuario['_id'];?>"><?php echo $usuario['nome'];?></a></td>
 			<td><?php echo $usuario['email'];?></td>
 			<td>
 				<a class="btn btn-primary" href="<?php echo $this->baseUrl();?>/usuarios/index/update/id/<?php echo $usuario['_id'];?>">Editar</a>
