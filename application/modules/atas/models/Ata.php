@@ -53,20 +53,7 @@ class Atas_Model_Ata {
 		try{
 			$conexao = new Atas_Model_Banco();
 			$db = $conexao->getConnection();
-			$array = array(
-				array("_id" => new MongoId($ata->id)),
-				array("$set"=>array(
-					'assunto' => $ata->assunto,
-					'data' => $ata->data,
-					'pautas' => $ata->pautas,
-					'presentes' => $ata->presentes,
-					'descricao' => $ata->descricao,
-					'descricaoPontos' => $ata->descricaoPontos,
-					'status' => $ata->status,
-				))
-			);
-			
-			$a = array(
+			$db->atas->update(
 				array('_id' => new MongoId($ata->id)),
 				array(
 					'$set'=>array(
@@ -80,12 +67,7 @@ class Atas_Model_Ata {
 					)
 				)
 			);
-			echo "<pre>";
-			print_r($a);
-			/*$db->atas->update(
-				$a
-			);
-			return true;*/
+			return true;
 		}catch(Exception $e){
 			return false;
 			throw new Exception($e->getMessage());
