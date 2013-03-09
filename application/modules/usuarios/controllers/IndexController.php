@@ -32,7 +32,7 @@ class Usuarios_IndexController extends Zend_Controller_Action {
 
         $usuarios = new Usuarios_Model_Usuario();
         if ($this->request->getParam('password') != "" && $this->request->getParam('password') == $this->request->getParam('re-password')) {
-            if ($usuarios->adicionar($usuario)) {
+            if ($usuarios->add($usuario)) {
                 echo "Usuario inserido com Sucesso";
                 $this->_helper->redirector('index', 'index', 'usuarios');
             } else {
@@ -66,7 +66,7 @@ class Usuarios_IndexController extends Zend_Controller_Action {
                 'username' => $this->request->getParam('username'),
                 'password' => $this->request->getParam('password'),
             );
-            if ($usuario->atualizar($usuarios)) {
+            if ($usuario->update($usuarios)) {
                 echo "Usuario inserido com Sucesso";
                 $this->_helper->redirector('index', 'index', 'usuarios');
             } else {
@@ -80,7 +80,7 @@ class Usuarios_IndexController extends Zend_Controller_Action {
         $this->request = $this->getRequest();
         $id = $this->request->getParam('id');
         $usuario = new Usuarios_Model_Usuario();
-        $resultado = $usuario->apagar($id);
+        $resultado = $usuario->delete($id);
         $this->_helper->redirector('index', 'index', 'usuarios');
     }
 

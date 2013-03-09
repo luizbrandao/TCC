@@ -7,7 +7,7 @@ class Atas_Model_Ata {
 		try{
 			$conexao = new Atas_Model_Banco();
 			$db = $conexao->getConnection();
-			$array = array(
+			$ata = array(
 				'assunto' => $ata->assunto,
 				'data' => $ata->data,
 				'pautas' => $ata->pautas,
@@ -17,7 +17,7 @@ class Atas_Model_Ata {
 				'status' => $ata->status,
 			);
 
-			$db->atas->insert($array);
+			$db->atas->insert($ata);
 			return true;
 		}catch(Exception $e){
 			throw new Exception($e->getMessage());			
@@ -37,6 +37,7 @@ class Atas_Model_Ata {
 	}
 
 	public function findAll(){
+		//Metodo para listagem de todas as atas
 		try{
 			$conexao = new Atas_Model_Banco();
 			$db = $conexao->getConnection();
@@ -50,6 +51,7 @@ class Atas_Model_Ata {
 	}
 
 	public function update($ata){
+		//Metodo para atualizacao/homologacao de atas
 		try{
 			$conexao = new Atas_Model_Banco();
 			$db = $conexao->getConnection();
